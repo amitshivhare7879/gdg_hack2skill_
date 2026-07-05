@@ -18,18 +18,18 @@ export default function DashboardNav() {
   const suffix = locality ? `?locality=${encodeURIComponent(locality)}` : "";
 
   return (
-    <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 pb-3">
-      <nav className="flex gap-1">
+    <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+      <nav className="flex gap-1 rounded-xl border border-slate-200/80 bg-white p-1 shadow-card">
         {TABS.map((t) => {
           const active = pathname === t.href;
           return (
             <Link
               key={t.href}
               href={`${t.href}${suffix}`}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${
+              className={`rounded-lg px-3.5 py-1.5 text-sm font-semibold transition ${
                 active
-                  ? "bg-brand-light text-brand-dark"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-ink"
+                  ? "bg-brand-gradient text-white shadow-glow"
+                  : "text-ink-soft hover:bg-slate-100 hover:text-ink"
               }`}
             >
               {t.label}

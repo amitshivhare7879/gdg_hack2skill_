@@ -6,6 +6,7 @@ import { getPriorities } from "@/lib/api";
 import { applyWeights, DEFAULT_WEIGHTS, type Weights } from "@/lib/scoring";
 import WeightSliders from "./WeightSliders";
 import PriorityCard from "./PriorityCard";
+import PageHeader from "./PageHeader";
 import { EmptyState, ErrorState, Skeleton } from "./States";
 
 export default function PrioritiesView() {
@@ -31,13 +32,11 @@ export default function PrioritiesView() {
 
   return (
     <div>
-      <div className="mb-4">
-        <h1 className="text-xl font-bold text-ink">Proposed projects, ranked</h1>
-        <p className="text-sm text-gray-500">
-          Move the weights — the ranking re-sorts instantly. Backend returns raw
-          component scores; you decide the trade-off.
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="Decision support"
+        title="Proposed projects, ranked"
+        subtitle="Move the weights — the ranking re-sorts instantly. The backend returns raw component scores; you own the trade-off between demand, severity and feasibility."
+      />
 
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
         <div className="lg:sticky lg:top-20 lg:self-start">

@@ -109,7 +109,41 @@ def test_clusters_filtered_by_locality(client):
 def test_clusters_unknown_locality_is_empty_not_500(client):
     r = client.get("/api/clusters", params={"locality": "nowhere"})
     assert r.status_code == 200
-    assert r.json() == {"clusters": []}
+    body = r.json()
+    assert body["clusters"] == []
+    assert body["total"] == 0
+    assert body["stats"] == {"complaints": 0, "citizens": 0}
+
+
+def test_clusters_pagination_limit_offset(client):
+    full = client.get("/api/clusters").json()
+    assert full["total"] == 20
+    assert len(full["clusters"]) == 20
+    # stats are computed over the FULL set, not the page
+    assert full["stats"]["complaints"] > 0
+
+    page1 = client.get("/api/clusters", params={"limit": 6, "offset": 0}).json()
+    assert page1["total"] == 20  # total is the full count, not the page size
+    assert len(page1["clusters"]) == 6
+    assert page1["stats"] == full["stats"]  # unchanged by paging
+
+    page2 = client.get("/api/clusters", params={"limit": 6, "offset": 6}).json()
+    ids1 = {c["id"] for c in page1["clusters"]}
+    ids2 = {c["id"] for c in page2["clusters"]}
+    assert ids1.isdisjoint(ids2)  # no overlap between pages
+
+
+def test_outbox_and_priorities_and_hotspots_expose_total(client):
+    for path, key in [
+        ("/api/outbox", "messages"),
+        ("/api/priorities", "projects"),
+        ("/api/hotspots", "hotspots"),
+    ]:
+        body = client.get(path).json()
+        assert body["total"] == len(body[key])
+        limited = client.get(path, params={"limit": 2}).json()
+        assert limited["total"] == body["total"]
+        assert len(limited[key]) == min(2, body["total"])
 
 
 def test_hotspots_shape(client):

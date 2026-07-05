@@ -7,12 +7,14 @@
 
 import type {
   Cluster,
+  ClusterPage,
   ComplaintResponse,
   ComplaintSubmission,
   Health,
   Hotspot,
   Locality,
   OutboxMessage,
+  OutboxPage,
   Project,
 } from "./types";
 
@@ -58,17 +60,44 @@ export async function getLocalities(): Promise<Locality[]> {
   return data.localities;
 }
 
-export async function getClusters(locality?: string): Promise<Cluster[]> {
-  const q = locality ? `?locality=${encodeURIComponent(locality)}` : "";
-  const data = await getJSON<{ clusters: Cluster[] }>(
-    `/clusters${q}`,
-    "clusters.json",
-  );
-  // Mock mode: filter client-side so the selector still works offline.
-  if (IS_MOCK && locality) {
-    return data.clusters.filter((c) => c.locality === locality);
+function qsFrom(params: Record<string, string | number | undefined>): string {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    if (v !== undefined && v !== "") qs.set(k, String(v));
   }
-  return data.clusters;
+  const s = qs.toString();
+  return s ? `?${s}` : "";
+}
+
+export async function getClusters(
+  opts: { locality?: string; limit?: number; offset?: number } = {},
+): Promise<ClusterPage> {
+  const { locality, limit, offset = 0 } = opts;
+  const q = qsFrom({ locality, limit, offset: offset || undefined });
+  const data = await getJSON<{
+    clusters: Cluster[];
+    total?: number;
+    stats?: { complaints: number; citizens: number };
+  }>(`/clusters${q}`, "clusters.json");
+
+  if (IS_MOCK) {
+    // Mock files are full arrays — filter + paginate + aggregate client-side.
+    const all = locality
+      ? data.clusters.filter((c) => c.locality === locality)
+      : data.clusters;
+    const stats = {
+      complaints: all.reduce((s, c) => s + c.complaint_count, 0),
+      citizens: all.reduce((s, c) => s + c.citizen_count, 0),
+    };
+    const items = limit == null ? all : all.slice(offset, offset + limit);
+    return { items, total: all.length, stats };
+  }
+
+  return {
+    items: data.clusters,
+    total: data.total ?? data.clusters.length,
+    stats: data.stats ?? { complaints: 0, citizens: 0 },
+  };
 }
 
 export async function getHotspots(): Promise<Hotspot[]> {
@@ -87,12 +116,23 @@ export async function getPriorities(): Promise<Project[]> {
   return data.projects;
 }
 
-export async function getOutbox(): Promise<OutboxMessage[]> {
-  const data = await getJSON<{ messages: OutboxMessage[] }>(
-    "/outbox",
+export async function getOutbox(
+  opts: { limit?: number; offset?: number } = {},
+): Promise<OutboxPage> {
+  const { limit, offset = 0 } = opts;
+  const q = qsFrom({ limit, offset: offset || undefined });
+  const data = await getJSON<{ messages: OutboxMessage[]; total?: number }>(
+    `/outbox${q}`,
     "outbox.json",
   );
-  return data.messages;
+
+  if (IS_MOCK) {
+    const all = data.messages;
+    const items = limit == null ? all : all.slice(offset, offset + limit);
+    return { items, total: all.length };
+  }
+
+  return { items: data.messages, total: data.total ?? data.messages.length };
 }
 
 export async function submitComplaint(

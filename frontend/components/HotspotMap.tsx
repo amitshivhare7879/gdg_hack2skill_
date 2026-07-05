@@ -23,7 +23,7 @@ export default function HotspotMap({
 }) {
   return (
     <div>
-      <div className="h-[520px] w-full overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+      <div className="h-[520px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-card">
         <MapContainer
           center={INDORE}
           zoom={13}
@@ -64,17 +64,17 @@ export default function HotspotMap({
       </div>
 
       {/* Legend */}
-      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-xs">
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs shadow-card">
         {CATEGORIES.map((cat) => (
-          <span key={cat} className="inline-flex items-center gap-1.5 text-gray-600">
+          <span key={cat} className="inline-flex items-center gap-1.5 font-medium text-ink-soft">
             <span
-              className="inline-block h-3 w-3 rounded-full"
-              style={{ backgroundColor: CATEGORY_META[cat].marker }}
+              className="inline-block h-3 w-3 rounded-full ring-2 ring-white"
+              style={{ backgroundColor: CATEGORY_META[cat].marker, boxShadow: `0 0 0 1px ${CATEGORY_META[cat].marker}55` }}
             />
             {CATEGORY_META[cat].label}
           </span>
         ))}
-        <span className="ml-auto text-gray-400">Circle size = complaint volume</span>
+        <span className="ml-auto font-medium text-ink-muted">● Circle size = complaint volume</span>
       </div>
     </div>
   );

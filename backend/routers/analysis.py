@@ -55,9 +55,19 @@ def analyze(session: Session = Depends(get_session)) -> dict:
 
 
 @router.get("/priorities")
-def priorities(session: Session = Depends(get_session)) -> dict:
-    projects = session.exec(select(ProposedProject)).all()
+def priorities(
+    limit: int | None = None,
+    offset: int = 0,
+    session: Session = Depends(get_session),
+) -> dict:
+    """Proposed projects with raw component scores. Pagination is opt-in — the
+    frontend fetches the full set because the client-side slider re-sort needs
+    every project in memory."""
+    projects = list(session.exec(select(ProposedProject)).all())
+    total = len(projects)
+    page = projects if limit is None else projects[offset : offset + limit]
     return {
+        "total": total,
         "projects": [
             {
                 "id": p.id,
@@ -73,17 +83,27 @@ def priorities(session: Session = Depends(get_session)) -> dict:
                 "linked_cluster_ids": p.linked_cluster_ids or [],
                 "data_sources": p.data_sources or [],
             }
-            for p in projects
-        ]
+            for p in page
+        ],
     }
 
 
 @router.get("/outbox")
-def outbox(session: Session = Depends(get_session)) -> dict:
-    messages = session.exec(
-        select(OutboxMessage).order_by(OutboxMessage.created_at.desc())  # type: ignore[attr-defined]
-    ).all()
+def outbox(
+    limit: int | None = None,
+    offset: int = 0,
+    session: Session = Depends(get_session),
+) -> dict:
+    """Queued citizen notifications, newest first. Pagination is opt-in."""
+    messages = list(
+        session.exec(
+            select(OutboxMessage).order_by(OutboxMessage.created_at.desc())  # type: ignore[attr-defined]
+        ).all()
+    )
+    total = len(messages)
+    page = messages if limit is None else messages[offset : offset + limit]
     return {
+        "total": total,
         "messages": [
             {
                 "id": m.id,
@@ -95,6 +115,6 @@ def outbox(session: Session = Depends(get_session)) -> dict:
                 "channel": OUTBOX_CHANNEL,
                 "created_at": _iso_z(m.created_at),
             }
-            for m in messages
-        ]
+            for m in page
+        ],
     }

@@ -19,7 +19,11 @@ export default function ClusterDrawer({
     }
     if (cluster) {
       window.addEventListener("keydown", onKey);
-      return () => window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "hidden";
+      return () => {
+        window.removeEventListener("keydown", onKey);
+        document.body.style.overflow = "";
+      };
     }
   }, [cluster, onClose]);
 
@@ -30,69 +34,87 @@ export default function ClusterDrawer({
   return (
     <div className="fixed inset-0 z-[1000] flex justify-end" role="dialog" aria-modal="true">
       <div
-        className="absolute inset-0 bg-black/30 transition-opacity"
+        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden
+        style={{ animation: "fade-up 0.2s ease both" }}
       />
-      <aside className="relative flex h-full w-full max-w-md flex-col overflow-y-auto bg-white shadow-xl">
-        <div className="sticky top-0 z-10 border-b border-gray-100 bg-white px-5 py-4">
-          <div className="mb-2 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${cat.chip}`}>
-                <span aria-hidden>{cat.emoji}</span>
-                {cat.label}
+      <aside
+        className="relative flex h-full w-full max-w-md flex-col overflow-y-auto bg-slate-50 shadow-2xl"
+        style={{ animation: "pop-in 0.28s cubic-bezier(0.2,0.8,0.2,1) both" }}
+      >
+        {/* Gradient header band */}
+        <div className="sticky top-0 z-10">
+          <div
+            className="h-1.5 w-full"
+            style={{ background: cat.marker }}
+            aria-hidden
+          />
+          <div className="border-b border-slate-200 bg-white/90 px-5 py-4 backdrop-blur">
+            <div className="mb-3 flex items-center justify-between">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${cat.chip}`}>
+                  <span aria-hidden>{cat.emoji}</span>
+                  {cat.label}
+                </span>
+                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${sev.badge}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${sev.dot}`} />
+                  {sev.label} severity
+                </span>
+              </div>
+              <button
+                onClick={onClose}
+                aria-label="Close"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-muted transition hover:bg-slate-100 hover:text-ink"
+              >
+                ✕
+              </button>
+            </div>
+            <h2 className="text-lg font-extrabold leading-snug text-ink">{cluster.label}</h2>
+            <div className="mt-2 flex items-center gap-3 text-sm text-ink-muted">
+              <span>
+                <span className="font-bold text-ink">{cluster.complaint_count}</span> reports
               </span>
-              <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${sev.badge}`}>
-                <span className={`h-1.5 w-1.5 rounded-full ${sev.dot}`} />
-                {sev.label} severity
+              <span className="text-slate-300">·</span>
+              <span>
+                <span className="font-bold text-ink">{cluster.citizen_count}</span> unique citizens
               </span>
             </div>
-            <button
-              onClick={onClose}
-              aria-label="Close"
-              className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700"
-            >
-              ✕
-            </button>
           </div>
-          <h2 className="text-lg font-semibold leading-snug text-ink">{cluster.label}</h2>
-          <p className="mt-1 text-sm text-gray-500">
-            {cluster.complaint_count} complaints · {cluster.citizen_count} unique citizens
-          </p>
         </div>
 
         <div className="space-y-6 px-5 py-5">
           {/* Corroboration */}
           <section>
-            <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
-              Why this severity
+            <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ink-muted">
+              <span className="text-brand">◆</span> Why this severity
             </h3>
-            <p className="rounded-md bg-gray-50 p-3 text-sm text-gray-700">
+            <p className="rounded-xl border border-slate-200 bg-white p-3.5 text-sm leading-relaxed text-ink-soft">
               {cluster.severity_rationale}
             </p>
           </section>
 
           {/* Complaints — the mixed-language money shot */}
           <section>
-            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-ink-muted">
               Reports in this cluster
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {cluster.complaints.map((c) => {
                 const src = mediaUrl(c.photo_url);
                 return (
-                  <li key={c.id} className="flex gap-3 rounded-md border border-gray-100 p-3">
+                  <li key={c.id} className="flex gap-3 rounded-xl border border-slate-200 bg-white p-3.5 shadow-card">
                     <div className="pt-0.5">
                       <LanguageBadge lang={c.original_language} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm text-ink">{c.text}</p>
+                      <p className="text-sm leading-relaxed text-ink">{c.text}</p>
                       {c.has_photo && src && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={src}
                           alt={`Photo attached to report ${c.id}`}
-                          className="mt-2 h-24 w-32 rounded object-cover"
+                          className="mt-2 h-24 w-32 rounded-lg object-cover ring-1 ring-slate-200"
                         />
                       )}
                     </div>
@@ -105,20 +127,20 @@ export default function ClusterDrawer({
           {/* Related clusters — causal inference */}
           {cluster.related.length > 0 && (
             <section>
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-ink-muted">
                 Related issues
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {cluster.related.map((r) => (
-                  <li key={r.cluster_id} className="rounded-md border border-brand/20 bg-brand-light/40 p-3">
-                    <div className="flex items-center gap-2 text-sm font-medium text-ink">
-                      <span className="text-brand-dark" aria-hidden>→</span>
-                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-dark">
+                  <li key={r.cluster_id} className="rounded-xl border border-brand/25 bg-gradient-to-br from-brand-light/60 to-white p-3.5">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-xs text-white" aria-hidden>→</span>
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-brand-dark">
                         {RELATION_LABEL[r.relation] ?? r.relation}
                       </span>
                     </div>
-                    <div className="mt-1 text-sm font-medium text-ink">{r.label}</div>
-                    <p className="mt-1 text-sm text-gray-600">{r.explanation}</p>
+                    <div className="mt-2 text-sm font-bold text-ink">{r.label}</div>
+                    <p className="mt-1 text-sm leading-relaxed text-ink-soft">{r.explanation}</p>
                   </li>
                 ))}
               </ul>

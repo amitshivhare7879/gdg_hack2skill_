@@ -101,6 +101,23 @@ export interface OutboxMessage {
   created_at: string;
 }
 
+// Pagination envelopes (Load-more style)
+export interface ClusterStats {
+  complaints: number;
+  citizens: number;
+}
+
+export interface ClusterPage {
+  items: Cluster[];
+  total: number;
+  stats: ClusterStats;
+}
+
+export interface OutboxPage {
+  items: OutboxMessage[];
+  total: number;
+}
+
 // POST /complaints
 export interface ComplaintSubmission {
   text: string;

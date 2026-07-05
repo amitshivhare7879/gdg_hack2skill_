@@ -1,54 +1,90 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { Cluster } from "@/lib/types";
+import type { Cluster, ClusterStats } from "@/lib/types";
 import { getClusters } from "@/lib/api";
 import StatBar from "./StatBar";
 import ClusterCard from "./ClusterCard";
 import ClusterDrawer from "./ClusterDrawer";
+import PageHeader from "./PageHeader";
+import LoadMore from "./LoadMore";
 import { CardGridSkeleton, EmptyState, ErrorState } from "./States";
 
+const PAGE_SIZE = 9;
+
 export default function ClustersView({ locality }: { locality?: string }) {
-  const [clusters, setClusters] = useState<Cluster[] | null>(null);
+  const [items, setItems] = useState<Cluster[] | null>(null);
+  const [total, setTotal] = useState(0);
+  const [stats, setStats] = useState<ClusterStats>({ complaints: 0, citizens: 0 });
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<Cluster | null>(null);
 
+  // First page (also re-runs whenever the locality filter changes).
   const load = useCallback(() => {
-    setClusters(null);
+    setItems(null);
     setError(null);
-    getClusters(locality)
-      .then(setClusters)
+    getClusters({ locality, limit: PAGE_SIZE, offset: 0 })
+      .then((page) => {
+        setItems(page.items);
+        setTotal(page.total);
+        setStats(page.stats);
+      })
       .catch((e: Error) => setError(e.message));
   }, [locality]);
 
   useEffect(load, [load]);
 
+  const loadMore = useCallback(() => {
+    if (!items) return;
+    setLoadingMore(true);
+    getClusters({ locality, limit: PAGE_SIZE, offset: items.length })
+      .then((page) => {
+        setItems((prev) => [...(prev ?? []), ...page.items]);
+        setTotal(page.total);
+      })
+      .catch((e: Error) => setError(e.message))
+      .finally(() => setLoadingMore(false));
+  }, [items, locality]);
+
   return (
     <div>
-      <div className="mb-4">
-        <h1 className="text-xl font-bold text-ink">Clustered civic issues</h1>
-        <p className="text-sm text-gray-500">
-          Duplicate reports merged across Hindi and English into single issues.
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="MP Dashboard"
+        title="Clustered civic issues"
+        subtitle="Duplicate reports are merged across Hindi and English into single, corroborated issues — ranked by real demand, not by who shouts loudest."
+      />
 
       {error ? (
         <ErrorState message={error} onRetry={load} />
-      ) : clusters === null ? (
+      ) : items === null ? (
         <CardGridSkeleton />
-      ) : clusters.length === 0 ? (
+      ) : items.length === 0 ? (
         <EmptyState
           title="No complaints for this locality yet"
           hint="Try another locality, or submit the first report."
         />
       ) : (
         <>
-          <StatBar clusters={clusters} />
+          <StatBar complaints={stats.complaints} issues={total} citizens={stats.citizens} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {clusters.map((c) => (
-              <ClusterCard key={c.id} cluster={c} onOpen={setSelected} />
+            {items.map((c, i) => (
+              <div
+                key={c.id}
+                className="animate-fade-up"
+                style={{ animationDelay: `${Math.min((i % PAGE_SIZE) * 40, 360)}ms` }}
+              >
+                <ClusterCard cluster={c} onOpen={setSelected} />
+              </div>
             ))}
           </div>
+          <LoadMore
+            shown={items.length}
+            total={total}
+            loading={loadingMore}
+            onClick={loadMore}
+            label="Load more issues"
+          />
         </>
       )}
 

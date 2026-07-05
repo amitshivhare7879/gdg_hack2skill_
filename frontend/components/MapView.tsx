@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import type { Cluster, Hotspot } from "@/lib/types";
 import { getClusters, getHotspots } from "@/lib/api";
 import ClusterDrawer from "./ClusterDrawer";
+import PageHeader from "./PageHeader";
 import { EmptyState, ErrorState, Skeleton } from "./States";
 
 // Leaflet touches `window` at import time — must be client-only.
@@ -22,10 +23,11 @@ export default function MapView() {
   const load = useCallback(() => {
     setHotspots(null);
     setError(null);
+    // Map needs the FULL cluster set (for the drawer lookup) — omit limit.
     Promise.all([getHotspots(), getClusters()])
-      .then(([h, c]) => {
+      .then(([h, page]) => {
         setHotspots(h);
-        setClusters(c);
+        setClusters(page.items);
       })
       .catch((e: Error) => setError(e.message));
   }, []);
@@ -48,12 +50,11 @@ export default function MapView() {
 
   return (
     <div>
-      <div className="mb-4">
-        <h1 className="text-xl font-bold text-ink">Hotspot map — Indore</h1>
-        <p className="text-sm text-gray-500">
-          Circle size = complaint volume, colour = category. Click a hotspot for details.
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="Geographic view"
+        title="Hotspot map — Indore"
+        subtitle="Circle size = complaint volume, colour = category. Click any hotspot to open the full cluster."
+      />
 
       {error ? (
         <ErrorState message={error} onRetry={load} />

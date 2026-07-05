@@ -30,11 +30,11 @@ export default function LocalitySelector() {
 
   return (
     <label className="flex items-center gap-2 text-sm">
-      <span className="text-gray-500">Locality</span>
+      <span className="hidden font-medium text-ink-muted sm:inline">📍 Locality</span>
       <select
         value={current}
         onChange={onChange}
-        className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-ink shadow-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+        className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-ink shadow-card transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
       >
         <option value="">All localities</option>
         {localities.map((l) => (

@@ -159,20 +159,38 @@ def _complaint_dict(c: Complaint) -> dict:
 
 @router.get("/clusters")
 def get_clusters(
-    locality: str | None = None, session: Session = Depends(get_session)
+    locality: str | None = None,
+    limit: int | None = None,
+    offset: int = 0,
+    session: Session = Depends(get_session),
 ) -> dict:
+    """List clusters, optionally filtered by locality and paginated.
+
+    Pagination is opt-in: omit `limit` to get the full set (back-compat).
+    `stats` is always computed over the FULL filtered set — never just the
+    returned page — so a paginated dashboard grid never under-counts the
+    StatBar totals.
+    """
     query = select(Cluster)
     if locality:
         query = query.where(Cluster.locality == locality)
-    clusters = session.exec(query).all()
+    clusters = list(session.exec(query).all())
+
+    total = len(clusters)
+    stats = {
+        "complaints": sum(c.complaint_count for c in clusters),
+        "citizens": sum(c.citizen_count for c in clusters),
+    }
     if not clusters:
-        return {"clusters": []}
+        return {"clusters": [], "total": 0, "stats": stats}
+
+    page = clusters if limit is None else clusters[offset : offset + limit]
 
     labels_by_id = {c.id: c.label for c in session.exec(select(Cluster)).all()}
     relations = session.exec(select(ClusterRelation)).all()
 
     out = []
-    for cluster in clusters:
+    for cluster in page:
         complaints = session.exec(
             select(Complaint).where(Complaint.cluster_id == cluster.id)
         ).all()
@@ -210,12 +228,19 @@ def get_clusters(
                 "related": related,
             }
         )
-    return {"clusters": out}
+    return {"clusters": out, "total": total, "stats": stats}
 
 
 @router.get("/hotspots")
-def get_hotspots(session: Session = Depends(get_session)) -> dict:
-    clusters = session.exec(select(Cluster)).all()
+def get_hotspots(
+    limit: int | None = None,
+    offset: int = 0,
+    session: Session = Depends(get_session),
+) -> dict:
+    """List map hotspots. Pagination is opt-in (the map fetches the full set)."""
+    clusters = list(session.exec(select(Cluster)).all())
+    total = len(clusters)
+    page = clusters if limit is None else clusters[offset : offset + limit]
     return {
         "hotspots": [
             {
@@ -227,6 +252,7 @@ def get_hotspots(session: Session = Depends(get_session)) -> dict:
                 "complaint_count": c.complaint_count,
                 "severity": c.severity,
             }
-            for c in clusters
-        ]
+            for c in page
+        ],
+        "total": total,
     }

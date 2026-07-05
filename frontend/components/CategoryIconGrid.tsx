@@ -23,16 +23,16 @@ export default function CategoryIconGrid({
             type="button"
             onClick={() => onChange(cat)}
             aria-pressed={selected}
-            className={`flex flex-col items-center gap-1 rounded-xl border-2 p-3 transition ${
+            className={`flex flex-col items-center gap-1 rounded-2xl border-2 p-3 transition active:scale-95 ${
               selected
-                ? "border-brand bg-brand-light"
-                : "border-gray-200 bg-white hover:border-gray-300"
+                ? "border-brand bg-brand-light shadow-glow"
+                : "border-slate-200 bg-white hover:border-brand/40 hover:bg-slate-50"
             }`}
           >
-            <span className="text-2xl" aria-hidden>
+            <span className={`text-2xl transition-transform ${selected ? "scale-110" : ""}`} aria-hidden>
               {meta.emoji}
             </span>
-            <span className="text-xs font-medium text-ink">
+            <span className="text-xs font-semibold text-ink">
               {lang === "hi" ? meta.labelHi : meta.label}
             </span>
           </button>

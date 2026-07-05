@@ -130,28 +130,35 @@ export default function SubmitPage() {
   // ---- Success screen ----
   if (result) {
     return (
-      <div className="mx-auto max-w-md py-8 text-center">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-3xl">
+      <div className="mx-auto max-w-md py-8 text-center animate-pop-in">
+        <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-4xl text-emerald-600 ring-8 ring-emerald-50">
           ✓
         </div>
-        <h1 className="text-2xl font-bold text-ink">{t.successTitle}</h1>
-        <div className="mt-4 rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm">
-          <p className="text-sm text-gray-500">
-            {lang === "hi" ? "समूह" : "Grouped into"}
-          </p>
-          <p className="mt-1 font-semibold text-ink">{result.cluster_label}</p>
-          <p className="mt-3 text-sm text-gray-600">{result.message}</p>
+        <h1 className="text-2xl font-extrabold text-ink">{t.successTitle}</h1>
+        <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left shadow-card">
+          <div className="h-1.5 bg-brand-gradient" aria-hidden />
+          <div className="p-5">
+            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
+              {lang === "hi" ? "समूह में जोड़ा गया" : "Grouped into"}
+            </p>
+            <p className="mt-1.5 text-lg font-bold leading-snug text-ink">
+              {result.cluster_label}
+            </p>
+            <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm leading-relaxed text-ink-soft">
+              {result.message}
+            </p>
+          </div>
         </div>
-        <div className="mt-6 flex flex-col gap-2">
+        <div className="mt-6 flex flex-col gap-2.5">
           <button
             onClick={reset}
-            className="rounded-xl bg-brand py-3 font-semibold text-white hover:bg-brand-dark"
+            className="rounded-2xl bg-brand-gradient py-3.5 font-bold text-white shadow-glow transition hover:brightness-105 active:scale-95"
           >
             {t.another}
           </button>
           <Link
             href="/dashboard"
-            className="rounded-xl border border-gray-300 py-3 font-medium text-gray-700 hover:bg-gray-50"
+            className="rounded-2xl border border-slate-200 bg-white py-3.5 font-semibold text-ink-soft transition hover:bg-slate-50"
           >
             {t.viewDashboard}
           </Link>
@@ -162,21 +169,24 @@ export default function SubmitPage() {
 
   // ---- Intake form ----
   return (
-    <div className="mx-auto max-w-md py-2">
-      <div className="mb-4 flex items-start justify-between gap-3">
+    <div className="mx-auto max-w-md py-2 animate-fade-up">
+      <div className="mb-5 flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-ink">{t.title}</h1>
-          <p className="mt-1 text-sm text-gray-500">{t.subtitle}</p>
+          <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-dark ring-1 ring-brand/20">
+            🎙️ {lang === "hi" ? "नागरिक शिकायत" : "Citizen intake"}
+          </span>
+          <h1 className="text-2xl font-extrabold tracking-tight text-ink">{t.title}</h1>
+          <p className="mt-1 text-sm text-ink-muted">{t.subtitle}</p>
         </div>
         {/* Language toggle */}
-        <div className="flex shrink-0 rounded-lg border border-gray-300 p-0.5 text-sm">
+        <div className="flex shrink-0 rounded-xl border border-slate-200 bg-white p-1 text-sm shadow-card">
           {(["hi", "en"] as Language[]).map((l) => (
             <button
               key={l}
               type="button"
               onClick={() => setLang(l)}
-              className={`rounded-md px-2.5 py-1 font-medium ${
-                lang === l ? "bg-brand text-white" : "text-gray-600"
+              className={`rounded-lg px-3 py-1.5 font-bold transition ${
+                lang === l ? "bg-brand-gradient text-white shadow-glow" : "text-ink-muted hover:text-ink"
               }`}
             >
               {l === "hi" ? "हिंदी" : "EN"}
@@ -185,7 +195,10 @@ export default function SubmitPage() {
         </div>
       </div>
 
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form
+        onSubmit={onSubmit}
+        className="space-y-5 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card"
+      >
         {/* Voice + text */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink">
@@ -199,7 +212,7 @@ export default function SubmitPage() {
             onChange={(e) => setText(e.target.value)}
             placeholder={t.placeholder}
             rows={3}
-            className="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-base focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
           />
         </div>
 
@@ -219,7 +232,7 @@ export default function SubmitPage() {
           <select
             value={locality}
             onChange={(e) => setLocality(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-base focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
           >
             <option value="">{t.selectLocality}</option>
             {localities.map((l) => (
@@ -240,9 +253,9 @@ export default function SubmitPage() {
             inputMode="numeric"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-base focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
           />
-          <p className="mt-1 text-xs text-gray-400">{t.phoneHint}</p>
+          <p className="mt-1 text-xs text-ink-muted">{t.phoneHint}</p>
         </div>
 
         {/* Photo */}
@@ -255,30 +268,30 @@ export default function SubmitPage() {
             type="file"
             accept="image/*"
             onChange={onFile}
-            className="block w-full text-sm text-gray-500 file:mr-3 file:rounded-lg file:border-0 file:bg-brand-light file:px-3 file:py-2 file:text-sm file:font-medium file:text-brand-dark"
+            className="block w-full text-sm text-ink-muted file:mr-3 file:rounded-xl file:border-0 file:bg-brand-light file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-brand-dark hover:file:brightness-95"
           />
           {photoPreview && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={photoPreview}
               alt="Selected photo preview"
-              className="mt-2 h-32 w-full rounded-lg object-cover"
+              className="mt-3 h-36 w-full rounded-xl object-cover ring-1 ring-slate-200"
             />
           )}
         </div>
 
         {formError && (
-          <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
-            {formError}
+          <p className="flex items-center gap-2 rounded-xl bg-red-50 px-3.5 py-2.5 text-sm font-medium text-red-600 ring-1 ring-red-100">
+            <span>⚠️</span> {formError}
           </p>
         )}
 
         <button
           type="submit"
           disabled={submitting}
-          className="w-full rounded-xl bg-brand py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-brand-dark disabled:opacity-60"
+          className="w-full rounded-2xl bg-brand-gradient py-4 text-base font-bold text-white shadow-glow transition hover:brightness-105 active:scale-[0.98] disabled:opacity-60"
         >
-          {submitting ? t.submitting : t.submit}
+          {submitting ? t.submitting : `${t.submit}  →`}
         </button>
       </form>
     </div>

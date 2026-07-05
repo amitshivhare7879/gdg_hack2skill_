@@ -13,17 +13,109 @@ body {
 }
 
 body {
-  background: #f7f7f6;
-  color: #1f2933;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Soft neutral canvas with two faint brand/indigo glows in the corners. */
+  background-color: #f6f7f9;
+  background-image:
+    radial-gradient(60rem 60rem at 100% -10%, rgba(224, 122, 47, 0.06), transparent 60%),
+    radial-gradient(50rem 50rem at -10% 110%, rgba(79, 70, 229, 0.05), transparent 55%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-/* Leaflet renders its own container; keep it above nothing weird */
+::selection {
+  background: rgba(224, 122, 47, 0.2);
+}
+
+/* Thin, unobtrusive scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
 .leaflet-container {
   font-family: inherit;
 }
 
 /* FLIP-cheap rank transition for priority cards */
 .rank-flip {
-  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 200ms ease;
+}
+
+/* Shimmer sweep used by skeletons */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Gradient text helper for headings/brand */
+.text-gradient {
+  background: linear-gradient(135deg, #f59e0b, #e07a2f 60%, #d2601c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Range slider: modern track + thumb (WebKit + Firefox) */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  outline: none;
+}
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 3px solid currentColor;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+input[type="range"].slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+}
+input[type="range"].slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 3px solid currentColor;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
 }
