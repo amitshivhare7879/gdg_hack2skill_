@@ -1,0 +1,102 @@
+{
+  "projects": [
+    {
+      "id": "p2",
+      "title": "Primary school building repair and girls' toilet block — Banganga Ward",
+      "category": "education",
+      "locality": "banganga",
+      "demand_score": 74,
+      "demand_evidence": "11 citizen complaints (9 unique citizens), equity-boosted 1.6x for a 68% literacy ward where fewer residents file complaints.",
+      "severity_score": 82,
+      "severity_evidence": "UDISE+ 2024-25: 22% dropout rate, 1 school per 8,400 children vs district avg 1 per 3,100.",
+      "feasibility_score": 88,
+      "feasibility_evidence": "Est. ₹18L, 3-month timeline; existing government building and land, MPLAD head applicable.",
+      "linked_cluster_ids": ["c5"],
+      "data_sources": ["UDISE+ 2024-25", "Census 2011 Ward Profile"]
+    },
+    {
+      "id": "p4",
+      "title": "LED streetlight installation and dark-spot elimination — Banganga",
+      "category": "electricity",
+      "locality": "banganga",
+      "demand_score": 68,
+      "demand_evidence": "8 complaints (6 citizens) on streetlights, equity-boosted 1.6x; the linked night-safety cluster adds corroborating demand.",
+      "severity_score": 71,
+      "severity_evidence": "Ward streetlight density mapped 'low'; night-safety theft cluster corroborates the dark-spot risk.",
+      "feasibility_score": 92,
+      "feasibility_evidence": "Est. ₹9L for 140 LED fixtures on existing poles; 6-week timeline under IMC smart-lighting rate contract.",
+      "linked_cluster_ids": ["c3", "c7"],
+      "data_sources": ["IMC Ward Infra 2024", "Census 2011 Ward Profile"]
+    },
+    {
+      "id": "p6",
+      "title": "Sewer desilting and drain reconstruction — Musakhedi main nala",
+      "category": "sanitation",
+      "locality": "musakhedi",
+      "demand_score": 61,
+      "demand_evidence": "7 complaints (6 citizens), equity-boosted 1.65x for a 66% literacy ward.",
+      "severity_score": 79,
+      "severity_evidence": "Stagnant water overlaps ward dengue reports; PHC density 0.3 per 10k vs 0.9 in planned wards.",
+      "feasibility_score": 58,
+      "feasibility_evidence": "Est. ₹42L; desilting immediate (3 weeks) but reconstruction needs AMRUT 2.0 sanction (files pending at UADD).",
+      "linked_cluster_ids": ["c9"],
+      "data_sources": ["NFHS-5 Indore", "AMRUT 2.0 DPR"]
+    },
+    {
+      "id": "p1",
+      "title": "Road resurfacing and pothole repair — Scheme 54 corridor, Vijay Nagar",
+      "category": "roads",
+      "locality": "vijay-nagar",
+      "demand_score": 52,
+      "demand_evidence": "6 complaints (5 citizens); no equity boost — 91% literacy ward already over-represented in complaint volume.",
+      "severity_score": 44,
+      "severity_evidence": "Recurring potholes on a busy corridor; no injury reports on record, kept moderate.",
+      "feasibility_score": 72,
+      "feasibility_evidence": "Est. ₹95L for 2.4 km; IMC road-maintenance head available; monsoon limits work to patch-first (5-month timeline).",
+      "linked_cluster_ids": ["c1"],
+      "data_sources": ["IMC Road Maintenance 2024"]
+    },
+    {
+      "id": "p7",
+      "title": "Health sub-centre upgrade with daily OPD — Musakhedi",
+      "category": "health",
+      "locality": "musakhedi",
+      "demand_score": 47,
+      "demand_evidence": "4 complaints (4 citizens), equity-boosted 1.65x; under-reported relative to the documented health-access gap.",
+      "severity_score": 85,
+      "severity_evidence": "Ward phc_per_10k at 0.3 vs 0.9 in planned wards; overlaps the sanitation-driven dengue cluster.",
+      "feasibility_score": 34,
+      "feasibility_evidence": "Est. ₹1.6Cr; needs NHM staffing sanction plus building expansion on a disputed plot; 18-24 month timeline.",
+      "linked_cluster_ids": ["c9"],
+      "data_sources": ["NFHS-5 Indore", "NHM Sanction Register"]
+    },
+    {
+      "id": "p5",
+      "title": "Narmada pipeline replacement — AB Road / Geeta Bhawan, Palasia",
+      "category": "water",
+      "locality": "palasia",
+      "demand_score": 40,
+      "demand_evidence": "5 complaints (4 citizens); no equity boost — 89% literacy ward.",
+      "severity_score": 38,
+      "severity_evidence": "Intermittent supply but tanker backup available; pipeline age flagged in IMC records.",
+      "feasibility_score": 66,
+      "feasibility_evidence": "Est. ₹68L for 800m; requires road-cutting permission and night work on arterial AB Road (4-month timeline).",
+      "linked_cluster_ids": ["c4"],
+      "data_sources": ["IMC Water Works 2024"]
+    },
+    {
+      "id": "p3",
+      "title": "New vocational training centre — Banganga Ward",
+      "category": "education",
+      "locality": "banganga",
+      "demand_score": 35,
+      "demand_evidence": "Aspirational demand from 3 citizens; not the active dropout driver in complaint data.",
+      "severity_score": 40,
+      "severity_evidence": "Skilling gap is real but downstream of the primary-school infrastructure gap driving dropouts now.",
+      "feasibility_score": 52,
+      "feasibility_evidence": "Est. ₹1.2Cr; land acquisition and new construction (12-18 months); no trainer staffing sanction yet.",
+      "linked_cluster_ids": ["c5"],
+      "data_sources": ["UDISE+ 2024-25"]
+    }
+  ]
+}

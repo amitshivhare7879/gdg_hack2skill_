@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "vijay-nagar",
+    "name": "Vijay Nagar",
+    "lat": 22.7533,
+    "lng": 75.8937,
+    "population": 84000,
+    "literacy_rate": 0.91,
+    "connectivity_rate": 0.88,
+    "indicators": {
+      "school_dropout_rate": 0.05,
+      "schools_per_10k_children": 3.4,
+      "phc_per_10k": 0.9,
+      "streetlight_density": "high"
+    },
+    "sources": [
+      "Census 2011 (Indore district urban literacy 80.9% — ward estimate above district avg for planned colony)",
+      "UDISE+ 2024-25 district report (district-level proxy)",
+      "NFHS-5 Indore district factsheet"
+    ]
+  },
+  {
+    "slug": "palasia",
+    "name": "Palasia",
+    "lat": 22.7256,
+    "lng": 75.8840,
+    "population": 71000,
+    "literacy_rate": 0.89,
+    "connectivity_rate": 0.86,
+    "indicators": {
+      "school_dropout_rate": 0.06,
+      "schools_per_10k_children": 3.1,
+      "phc_per_10k": 0.8,
+      "streetlight_density": "high"
+    },
+    "sources": [
+      "Census 2011 (ward estimate above Indore district urban avg 80.9%)",
+      "UDISE+ 2024-25 district report (district-level proxy)",
+      "NFHS-5 Indore district factsheet"
+    ]
+  },
+  {
+    "slug": "banganga",
+    "name": "Banganga",
+    "lat": 22.7448,
+    "lng": 75.8320,
+    "population": 62000,
+    "literacy_rate": 0.68,
+    "connectivity_rate": 0.54,
+    "indicators": {
+      "school_dropout_rate": 0.22,
+      "schools_per_10k_children": 1.2,
+      "phc_per_10k": 0.3,
+      "streetlight_density": "low"
+    },
+    "sources": [
+      "Census 2011 (ward estimate below Indore district urban avg — informal-settlement belt)",
+      "UDISE+ 2024-25 district report (district-level proxy, adjusted down per slum-cluster enrolment gap)",
+      "NFHS-5 Indore district factsheet (women's literacy/internet-use gap applied)"
+    ]
+  },
+  {
+    "slug": "musakhedi",
+    "name": "Musakhedi",
+    "lat": 22.6980,
+    "lng": 75.8895,
+    "population": 58000,
+    "literacy_rate": 0.66,
+    "connectivity_rate": 0.52,
+    "indicators": {
+      "school_dropout_rate": 0.19,
+      "schools_per_10k_children": 1.5,
+      "phc_per_10k": 0.3,
+      "streetlight_density": "low"
+    },
+    "sources": [
+      "Census 2011 (ward estimate below Indore district urban avg — informal-settlement belt)",
+      "UDISE+ 2024-25 district report (district-level proxy)",
+      "NFHS-5 Indore district factsheet (women's literacy/internet-use gap applied)"
+    ]
+  },
+  {
+    "slug": "sudama-nagar",
+    "name": "Sudama Nagar",
+    "lat": 22.6890,
+    "lng": 75.8270,
+    "population": 67000,
+    "literacy_rate": 0.80,
+    "connectivity_rate": 0.70,
+    "indicators": {
+      "school_dropout_rate": 0.11,
+      "schools_per_10k_children": 2.2,
+      "phc_per_10k": 0.5,
+      "streetlight_density": "medium"
+    },
+    "sources": [
+      "Census 2011 (ward estimate at Indore district urban avg 80.9%)",
+      "UDISE+ 2024-25 district report (district-level proxy)",
+      "NFHS-5 Indore district factsheet"
+    ]
+  }
+]

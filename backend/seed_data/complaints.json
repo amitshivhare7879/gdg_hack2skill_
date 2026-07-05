@@ -1,0 +1,596 @@
+[
+  {
+    "id": "x1",
+    "text": "Huge potholes on Scheme 54 main road near Sayaji Square, my scooter tyre burst last week. It has been like this for two months.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101001",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x2",
+    "text": "स्कीम 54 की मुख्य सड़क पर बड़े-बड़े गड्ढे हैं, दो महीने से कोई मरम्मत नहीं हुई। रोज़ ऑफिस जाते समय गाड़ी उछलती है।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101002",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x3",
+    "text": "Road from Vijay Nagar square towards Sayaji is completely broken, potholes every ten metres. Ambulances have to crawl through here every day.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101003",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x4",
+    "text": "विजय नगर चौराहे से सयाजी होटल तक सड़क पूरी टूटी पड़ी है, बारिश में गड्ढों में पानी भर जाता है और गड्ढे दिखते भी नहीं।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101004",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x5",
+    "text": "Potholes on the LIG link road stretch of Scheme 54 caused an accident yesterday, an elderly man fell off his Activa and broke his wrist.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101005",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x6",
+    "text": "स्कीम 54 में सड़क के गड्ढों की वजह से कल एक बुज़ुर्ग गिर गए। दो महीने से यही हाल है, कोई सुनवाई नहीं हो रही।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101006",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x7",
+    "text": "The service road along Scheme 54 has craters, not potholes. Two months and counting — school van drivers are now refusing this route.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101007",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x8",
+    "text": "Main road of Scheme 54 near Sayaji Square is full of potholes for over two months now, please get it repaired before the monsoon peaks.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "roads",
+    "phone": "9893101008",
+    "precomputed_cluster": "seed-c1"
+  },
+  {
+    "id": "x9",
+    "text": "Garbage bins near Vijay Nagar Square have been overflowing for a week, stray dogs scatter the trash across the footpath every evening.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102001",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x10",
+    "text": "The door-to-door garbage van has not come to Scheme 74 for five days, people have started dumping waste on the corner plot.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102002",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x11",
+    "text": "विजय नगर स्कीम 74 में कचरा गाड़ी पाँच दिन से नहीं आई, खाली प्लॉट पर कचरे का ढेर लग गया है, बदबू से खिड़की तक नहीं खोल सकते।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102003",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x12",
+    "text": "Overflowing dumpster behind Malhar Mega Mall, Vijay Nagar. The smell is unbearable and it is right next to the food street.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102004",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x13",
+    "text": "मल्हार मॉल के पीछे की कचरा पेटी हफ्ते भर से नहीं उठाई गई, पूरी गली में बदबू फैली हुई है।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102005",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x14",
+    "text": "Trash collection has been irregular in Vijay Nagar Scheme 74 for the past week. The corner plot is turning into a dump yard.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "sanitation",
+    "phone": "9893102006",
+    "precomputed_cluster": "seed-c2"
+  },
+  {
+    "id": "x15",
+    "text": "बाणगंगा मेन रोड पर तीन हफ्ते से स्ट्रीट लाइट बंद है, रात में पूरा अंधेरा रहता है, बच्चों को ट्यूशन से लाने में डर लगता है।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "electricity",
+    "phone": "9826103001",
+    "precomputed_cluster": "seed-c3"
+  },
+  {
+    "id": "x16",
+    "text": "Street lights on Banganga main road have been dead for three weeks. The whole stretch from the temple to the railway crossing is pitch dark after 8pm.",
+    "original_language": "en",
+    "locality": "banganga",
+    "category_hint": "electricity",
+    "phone": "9826103002",
+    "precomputed_cluster": "seed-c3"
+  },
+  {
+    "id": "x17",
+    "text": "हमारी गली कुम्हार मोहल्ला, बाणगंगा की चारों स्ट्रीट लाइट खराब हैं, तीन हफ्ते हो गए, शिकायत के बाद भी कोई सुधारने नहीं आया।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "electricity",
+    "phone": "9826022002",
+    "precomputed_cluster": "seed-c3"
+  },
+  {
+    "id": "x18",
+    "text": "बाणगंगा में मंदिर से रेलवे क्रॉसिंग तक एक भी लाइट नहीं जलती, रात को महिलाएँ अकेले निकल ही नहीं पातीं।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "electricity",
+    "phone": "9826103003",
+    "precomputed_cluster": "seed-c3"
+  },
+  {
+    "id": "x19",
+    "text": "कुम्हार मोहल्ला बाणगंगा की स्ट्रीट लाइटें अब भी बंद पड़ी हैं, दोबारा शिकायत कर रहा हूँ, अभी तक कोई ठीक करने नहीं आया।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "electricity",
+    "phone": "9826022002",
+    "precomputed_cluster": "seed-c3"
+  },
+  {
+    "id": "x20",
+    "text": "बाणगंगा रेलवे क्रॉसिंग के पास अंधेरे में परसों मेरी पड़ोसन की चेन खींच ली गई। लाइट नहीं होने से बदमाशों की हिम्मत बढ़ गई है।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "safety",
+    "phone": "9826104001",
+    "precomputed_cluster": "seed-c4"
+  },
+  {
+    "id": "x21",
+    "text": "Two chain snatching incidents near Banganga temple road this month, both after dark. That stretch has zero working lights and it feels unsafe to walk after 8.",
+    "original_language": "en",
+    "locality": "banganga",
+    "category_hint": "safety",
+    "phone": "9826104002",
+    "precomputed_cluster": "seed-c4"
+  },
+  {
+    "id": "x22",
+    "text": "रात में बाणगंगा मेन रोड पर अंधेरे की वजह से छेड़छाड़ और चोरी बढ़ गई है, बेटी को शाम की क्लास से अकेले नहीं बुला सकते।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "safety",
+    "phone": "9826104003",
+    "precomputed_cluster": "seed-c4"
+  },
+  {
+    "id": "x23",
+    "text": "बाणगंगा की सरकारी प्राथमिक शाला की छत से बारिश में पानी टपकता है, दो कमरे बंद कर दिए गए हैं, बच्चे बरामदे में बैठकर पढ़ते हैं।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826011001",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x24",
+    "text": "सरकारी स्कूल बाणगंगा में पाँच कक्षाओं के लिए सिर्फ दो शिक्षक हैं, आधे बच्चे स्कूल छोड़कर मंडी में मजदूरी करने लग गए हैं।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826105001",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x25",
+    "text": "Govt primary school in Banganga has broken benches and a leaking roof. My neighbour pulled his two kids out and sent them to work at the mandi.",
+    "original_language": "en",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826105002",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x26",
+    "text": "बाणगंगा स्कूल की बिल्डिंग जर्जर है, पिछले महीने दीवार का प्लास्टर बच्चों पर गिरा था। मरम्मत नहीं हुई तो हम बच्चों को भेजना बंद कर देंगे।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826105003",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x27",
+    "text": "प्राथमिक शाला बाणगंगा की छत की फिर से शिकायत कर रहा हूँ, बारिश शुरू हो गई है और दोनों कमरे अब भी बंद हैं, बच्चों की पढ़ाई रुकी हुई है।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826011001",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x28",
+    "text": "Banganga government school building is crumbling — cracked walls and no toilet for girls. Six kids from our lane alone have dropped out this year.",
+    "original_language": "en",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826105004",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x29",
+    "text": "बाणगंगा शाला में लड़कियों के लिए शौचालय नहीं है, इसी वजह से मोहल्ले की चार लड़कियों ने आठवीं के बाद स्कूल छोड़ दिया।",
+    "original_language": "hi",
+    "locality": "banganga",
+    "category_hint": "education",
+    "phone": "9826105005",
+    "precomputed_cluster": "seed-c5"
+  },
+  {
+    "id": "x30",
+    "text": "Water pipeline leaking on AB Road near Geeta Bhawan square for ten days now, thousands of litres flow onto the road every morning.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106001",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x31",
+    "text": "गीता भवन चौराहे के पास एबी रोड पर पाइपलाइन दस दिन से फूटी है, सुबह-सुबह सड़क पर नदी बह जाती है और घरों में पानी कम प्रेशर से आता है।",
+    "original_language": "hi",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106002",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x32",
+    "text": "Major leak in the Narmada line near Geeta Bhawan, Palasia. Water pressure in our whole block has halved since it started.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106003",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x33",
+    "text": "पलासिया में एबी रोड की मुख्य पाइपलाइन से लगातार पानी बह रहा है, इतना पानी बर्बाद हो रहा है और हमारे नल में दोपहर बाद बूँद भी नहीं आती।",
+    "original_language": "hi",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106004",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x34",
+    "text": "Pipeline burst near the Geeta Bhawan flyover leg is still not fixed after ten days. The road stays flooded till noon.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106005",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x35",
+    "text": "Continuous water leakage on the AB Road service lane in Palasia — reported to the helpline twice, it is still gushing out.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "water",
+    "phone": "9993106006",
+    "precomputed_cluster": "seed-c6"
+  },
+  {
+    "id": "x36",
+    "text": "The road at Geeta Bhawan square is sinking exactly where the pipeline has been leaking — a car wheel went into the depression yesterday.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9993107001",
+    "precomputed_cluster": "seed-c7"
+  },
+  {
+    "id": "x37",
+    "text": "गीता भवन चौराहे पर जहाँ से पाइपलाइन का पानी बह रहा है, वहीं सड़क धँस गई है। कल एक कार का पहिया गड्ढे में फँस गया।",
+    "original_language": "hi",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9993107002",
+    "precomputed_cluster": "seed-c7"
+  },
+  {
+    "id": "x38",
+    "text": "AB Road near Geeta Bhawan has developed deep cracks and a crater — the constant water from the leaking line has eaten away the road base.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9993107003",
+    "precomputed_cluster": "seed-c7"
+  },
+  {
+    "id": "x39",
+    "text": "पलासिया एबी रोड पर पानी के रिसाव की वजह से डामर उखड़ गया है, गड्ढा रोज़ बड़ा होता जा रहा है, दोपहिया वालों के लिए जानलेवा है।",
+    "original_language": "hi",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9993107004",
+    "precomputed_cluster": "seed-c7"
+  },
+  {
+    "id": "x40",
+    "text": "Road caving in near the Geeta Bhawan metro pillar — the same stretch that has been waterlogged from the burst pipeline for days.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9993107005",
+    "precomputed_cluster": "seed-c7"
+  },
+  {
+    "id": "x41",
+    "text": "मूसाखेड़ी मुख्य नाले का गंदा पानी दो हफ्ते से गलियों में भर रहा है, घर के सामने से निकलना मुश्किल हो गया है।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "sanitation",
+    "phone": "9425108001",
+    "precomputed_cluster": "seed-c8"
+  },
+  {
+    "id": "x42",
+    "text": "मूसाखेड़ी में सीवर लाइन चोक है, नाली का पानी सड़क पर बह रहा है और बच्चे उसी में से होकर स्कूल जाते हैं।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "sanitation",
+    "phone": "9425108002",
+    "precomputed_cluster": "seed-c8"
+  },
+  {
+    "id": "x43",
+    "text": "Sewage has been overflowing on Musakhedi main road for two weeks, dirty water is standing in front of at least twenty houses.",
+    "original_language": "en",
+    "locality": "musakhedi",
+    "category_hint": "sanitation",
+    "phone": "9425108003",
+    "precomputed_cluster": "seed-c8"
+  },
+  {
+    "id": "x44",
+    "text": "रिंग रोड से मूसाखेड़ी की तरफ वाली गली में नाले का पानी जमा है, बदबू और मच्छरों से जीना मुश्किल हो गया है।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "sanitation",
+    "phone": "9425108004",
+    "precomputed_cluster": "seed-c8"
+  },
+  {
+    "id": "x45",
+    "text": "मूसाखेड़ी का नाला ओवरफ्लो हो रहा है, गंदा पानी घरों के आँगन तक आ गया है। कई बार शिकायत के बाद भी सफाई नहीं हुई।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "sanitation",
+    "phone": "9425108005",
+    "precomputed_cluster": "seed-c8"
+  },
+  {
+    "id": "x46",
+    "text": "मूसाखेड़ी में जमा गंदे पानी की वजह से मच्छर बहुत बढ़ गए हैं, हमारी गली में एक हफ्ते में तीन बच्चों को डेंगू हो गया।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "health",
+    "phone": "9425109001",
+    "precomputed_cluster": "seed-c9"
+  },
+  {
+    "id": "x47",
+    "text": "Three dengue cases in our lane in Musakhedi this month — the stagnant sewage water everywhere is a mosquito farm and fogging never happens here.",
+    "original_language": "en",
+    "locality": "musakhedi",
+    "category_hint": "health",
+    "phone": "9425109002",
+    "precomputed_cluster": "seed-c9"
+  },
+  {
+    "id": "x48",
+    "text": "मूसाखेड़ी की सरकारी डिस्पेंसरी में डॉक्टर हफ्ते में दो ही दिन आते हैं, बुखार के मरीज़ों को एमवाय अस्पताल तक जाना पड़ता है।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "health",
+    "phone": "9425109003",
+    "precomputed_cluster": "seed-c9"
+  },
+  {
+    "id": "x49",
+    "text": "नाले के रुके हुए पानी से मूसाखेड़ी में बीमारियाँ फैल रही हैं, बुखार-उल्टी के मरीज़ हर घर में हैं और पास में कोई पक्का स्वास्थ्य केंद्र नहीं है।",
+    "original_language": "hi",
+    "locality": "musakhedi",
+    "category_hint": "health",
+    "phone": "9425109004",
+    "precomputed_cluster": "seed-c9"
+  },
+  {
+    "id": "x50",
+    "text": "सुदामा नगर सेक्टर ई में नर्मदा का पानी एक दिन छोड़कर आता है और सिर्फ आधा घंटा। टंकी भर ही नहीं पाती।",
+    "original_language": "hi",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9826033003",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x51",
+    "text": "Water supply in Sudama Nagar sector E is alternate days only, and the pressure is so low it does not reach first-floor taps.",
+    "original_language": "en",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9713110001",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x52",
+    "text": "सुदामा नगर में पानी की सप्लाई सिर्फ आधे घंटे की है, प्रेशर इतना कम है कि मोटर लगाने पर भी पानी ऊपर नहीं चढ़ता।",
+    "original_language": "hi",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9713110002",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x53",
+    "text": "सेक्टर ई सुदामा नगर में फिर तीन दिन से पानी नहीं आया, टैंकर मँगवाना पड़ा। पहले भी इसकी शिकायत कर चुका हूँ।",
+    "original_language": "hi",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9826033003",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x54",
+    "text": "Sudama Nagar sector E gets water once in two days for thirty minutes. Working couples miss the supply window entirely.",
+    "original_language": "en",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9713110003",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x55",
+    "text": "Low pressure and alternate-day water supply in Sudama Nagar for over a month now. We are buying tanker water at six hundred rupees.",
+    "original_language": "en",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9713110004",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x56",
+    "text": "सुदामा नगर सेक्टर ई की पानी की समस्या जस की तस है, तीसरी बार लिख रहा हूँ। आधा घंटा भी पूरा पानी नहीं मिलता।",
+    "original_language": "hi",
+    "locality": "sudama-nagar",
+    "category_hint": "water",
+    "phone": "9826033003",
+    "precomputed_cluster": "seed-c10"
+  },
+  {
+    "id": "x57",
+    "text": "Frequent power cuts in Vijay Nagar Scheme 78 every evening between 7 and 9pm for the past two weeks, the transformer trips daily.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "electricity",
+    "phone": "9300201001",
+    "precomputed_cluster": "seed-c11"
+  },
+  {
+    "id": "x58",
+    "text": "Stray cattle sit in the middle of the Vijay Nagar flyover service road at night, it is a serious accident risk for two-wheelers.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "other",
+    "phone": "9300201002",
+    "precomputed_cluster": "seed-c12"
+  },
+  {
+    "id": "x59",
+    "text": "Traffic signal at Vijay Nagar square has not been working since Monday, complete chaos during office hours and near-misses every few minutes.",
+    "original_language": "en",
+    "locality": "vijay-nagar",
+    "category_hint": "safety",
+    "phone": "9300201003",
+    "precomputed_cluster": "seed-c13"
+  },
+  {
+    "id": "x60",
+    "text": "विजय नगर स्कीम 78 में दो दिन से नल में मटमैला पानी आ रहा है, पीने लायक नहीं है।",
+    "original_language": "hi",
+    "locality": "vijay-nagar",
+    "category_hint": "water",
+    "phone": "9300201004",
+    "precomputed_cluster": "seed-c14"
+  },
+  {
+    "id": "x61",
+    "text": "Illegal parking has taken over the footpath outside the Palasia square shops, pedestrians are forced to walk on the road.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "other",
+    "phone": "9300201005",
+    "precomputed_cluster": "seed-c15"
+  },
+  {
+    "id": "x62",
+    "text": "A speed breaker is needed outside the school gate on the New Palasia inner road, cars speed through during school dispersal time.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "roads",
+    "phone": "9300201006",
+    "precomputed_cluster": "seed-c16"
+  },
+  {
+    "id": "x63",
+    "text": "न्यू पलासिया में जनता क्वार्टर के पास की सार्वजनिक कचरा पेटी हटा दी गई है, अब लोग सड़क पर ही कचरा फेंक रहे हैं।",
+    "original_language": "hi",
+    "locality": "palasia",
+    "category_hint": "sanitation",
+    "phone": "9300201007",
+    "precomputed_cluster": "seed-c17"
+  },
+  {
+    "id": "x64",
+    "text": "Streetside encroachment near the Palasia square bus stop leaves no space for the city bus to pull in, it stops in the middle lane.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "other",
+    "phone": "9300201008",
+    "precomputed_cluster": "seed-c18"
+  },
+  {
+    "id": "x65",
+    "text": "Mosquito fogging has not happened in New Palasia this season despite standing water in the nala behind Industry House.",
+    "original_language": "en",
+    "locality": "palasia",
+    "category_hint": "health",
+    "phone": "9300201009",
+    "precomputed_cluster": "seed-c19"
+  },
+  {
+    "id": "x66",
+    "text": "सुदामा नगर रिंग रोड ब्रिज के नीचे सर्विस रोड पर बड़ा गड्ढा है, रात में दिखता नहीं और आए दिन गाड़ियाँ गिरती हैं।",
+    "original_language": "hi",
+    "locality": "sudama-nagar",
+    "category_hint": "roads",
+    "phone": "9300201010",
+    "precomputed_cluster": "seed-c20"
+  }
+]

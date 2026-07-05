@@ -1,0 +1,9 @@
+{
+  "localities": [
+    { "slug": "vijay-nagar", "name": "Vijay Nagar", "lat": 22.7533, "lng": 75.8937, "population": 84000, "literacy_rate": 0.91, "connectivity_rate": 0.88 },
+    { "slug": "palasia", "name": "Palasia", "lat": 22.7256, "lng": 75.8840, "population": 71000, "literacy_rate": 0.89, "connectivity_rate": 0.86 },
+    { "slug": "banganga", "name": "Banganga", "lat": 22.7448, "lng": 75.8320, "population": 62000, "literacy_rate": 0.68, "connectivity_rate": 0.54 },
+    { "slug": "musakhedi", "name": "Musakhedi", "lat": 22.6980, "lng": 75.8895, "population": 58000, "literacy_rate": 0.66, "connectivity_rate": 0.52 },
+    { "slug": "sudama-nagar", "name": "Sudama Nagar", "lat": 22.6890, "lng": 75.8270, "population": 67000, "literacy_rate": 0.80, "connectivity_rate": 0.70 }
+  ]
+}
