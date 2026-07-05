@@ -1,0 +1,10 @@
+{
+  "hotspots": [
+    { "cluster_id": "c3", "label": "Street lights non-functional in Banganga lanes", "category": "electricity", "lat": 22.7448, "lng": 75.8320, "complaint_count": 8, "severity": "high" },
+    { "cluster_id": "c5", "label": "Primary school building damaged — Banganga", "category": "education", "lat": 22.7460, "lng": 75.8305, "complaint_count": 11, "severity": "high" },
+    { "cluster_id": "c7", "label": "Chain-snatching incidents at night", "category": "safety", "lat": 22.7441, "lng": 75.8338, "complaint_count": 4, "severity": "medium" },
+    { "cluster_id": "c1", "label": "Potholes — Scheme 54, Vijay Nagar", "category": "roads", "lat": 22.7533, "lng": 75.8937, "complaint_count": 6, "severity": "medium" },
+    { "cluster_id": "c9", "label": "Blocked drains — Musakhedi nala", "category": "sanitation", "lat": 22.6980, "lng": 75.8895, "complaint_count": 7, "severity": "high" },
+    { "cluster_id": "c4", "label": "Narmada water supply irregular — Palasia", "category": "water", "lat": 22.7256, "lng": 75.8840, "complaint_count": 5, "severity": "medium" }
+  ]
+}

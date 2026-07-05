@@ -1,0 +1,7 @@
+.env
+janvikas.db
+__pycache__/
+media/*
+!media/.gitkeep
+.pytest_cache/
+.ruff_cache/

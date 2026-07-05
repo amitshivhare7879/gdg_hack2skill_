@@ -1,0 +1,34 @@
+# Secrets — never commit real keys (pre-commit's detect-secrets is the backstop)
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+janvikas.db
+
+# Node / Next.js (frontend)
+node_modules/
+.next/
+out/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Planning & internal docs (not shipped to the public repo).
+# Patterns without a leading slash match at any depth.
+CLAUDE.md
+RULES.md
+PLANTED_KEY.md
+API_CONTRACT.md
+IMPLEMENTATION_PLAN_*.md
+README.md
+demo-script.md
+seed-data-spec.md
+submission-checklist.md
+presentation/

@@ -1,0 +1,44 @@
+{
+  "messages": [
+    {
+      "id": "m1",
+      "phone_masked": "98XXXXX210",
+      "language": "hi",
+      "cluster_label": "Street lights non-functional in Banganga lanes",
+      "body": "आपकी शिकायत दर्ज हो गई है। बाणगंगा क्षेत्र में स्ट्रीट लाइट की समस्या को उच्च प्राथमिकता दी गई है। 5 अन्य नागरिकों ने भी यही समस्या बताई है। जैसे ही काम स्वीकृत होगा, आपको सूचित किया जाएगा।",
+      "status": "queued",
+      "channel": "whatsapp (production)",
+      "created_at": "2026-07-05T10:15:00Z"
+    },
+    {
+      "id": "m2",
+      "phone_masked": "97XXXXX431",
+      "language": "en",
+      "cluster_label": "Primary school building damaged — Banganga",
+      "body": "Your report about the damaged school building has been recorded and grouped with 8 similar reports. This has been flagged as high priority for the Banganga ward. You will be notified when repair work is approved.",
+      "status": "queued",
+      "channel": "whatsapp (production)",
+      "created_at": "2026-07-05T11:02:00Z"
+    },
+    {
+      "id": "m3",
+      "phone_masked": "90XXXXX887",
+      "language": "hi",
+      "cluster_label": "Blocked drains — Musakhedi nala",
+      "body": "आपकी शिकायत दर्ज हो गई है। मुसाखेड़ी नाले में जलभराव की समस्या को उच्च प्राथमिकता दी गई है। 5 अन्य नागरिकों ने भी यही समस्या बताई है।",
+      "status": "queued",
+      "channel": "whatsapp (production)",
+      "created_at": "2026-07-05T08:20:00Z"
+    },
+    {
+      "id": "m4",
+      "phone_masked": "88XXXXX102",
+      "language": "en",
+      "cluster_label": "Potholes — Scheme 54, Vijay Nagar",
+      "body": "Your report about potholes on the Scheme 54 corridor has been recorded and grouped with 5 similar reports. You will be notified when road work is scheduled.",
+      "status": "queued",
+      "channel": "whatsapp (production)",
+      "created_at": "2026-07-05T09:10:00Z"
+    }
+  ]
+}

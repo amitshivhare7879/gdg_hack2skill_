@@ -1,0 +1,124 @@
+{
+  "clusters": [
+    {
+      "id": "c3",
+      "label": "Street lights non-functional in Banganga lanes",
+      "category": "electricity",
+      "severity": "high",
+      "severity_rationale": "Ward has 54% connectivity and 'low' streetlight density in IMC ward-infra data; night-safety complaints corroborate the dark-spot mapping across inner lanes.",
+      "complaint_count": 8,
+      "citizen_count": 6,
+      "locality": "banganga",
+      "lat": 22.7448,
+      "lng": 75.8320,
+      "complaints": [
+        { "id": "x1", "text": "स्ट्रीट लाइट तीन हफ्ते से खराब है, रात में अंधेरा रहता है", "original_language": "hi", "has_photo": false, "created_at": "2026-07-05T10:12:00Z" },
+        { "id": "x2", "text": "Street lights not working near the main road, very unsafe at night", "original_language": "en", "has_photo": true, "photo_url": "/mock/media/streetlight.svg", "created_at": "2026-07-05T09:30:00Z" },
+        { "id": "x3", "text": "गली नंबर 4 में एक भी लाइट नहीं जल रही", "original_language": "hi", "has_photo": false, "created_at": "2026-07-05T08:50:00Z" },
+        { "id": "x4", "text": "Poles are there but no light for weeks", "original_language": "en", "has_photo": false, "created_at": "2026-07-04T21:15:00Z" },
+        { "id": "x5", "text": "रात को बच्चों का बाहर निकलना मुश्किल है अंधेरे की वजह से", "original_language": "hi", "has_photo": false, "created_at": "2026-07-04T20:02:00Z" }
+      ],
+      "related": [
+        {
+          "cluster_id": "c7",
+          "label": "Chain-snatching and theft incidents at night",
+          "relation": "contributes_to",
+          "explanation": "Dark streets from non-functional lighting correlate with the night-time safety complaints clustered a few lanes away."
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "label": "Primary school building damaged, girls dropping out — Banganga",
+      "category": "education",
+      "severity": "high",
+      "severity_rationale": "UDISE+ 2024-25 flags 22% ward dropout vs 5-6% in planned wards; complaints cite closed classrooms and no girls' toilet, the documented dropout drivers.",
+      "complaint_count": 11,
+      "citizen_count": 9,
+      "locality": "banganga",
+      "lat": 22.7460,
+      "lng": 75.8305,
+      "complaints": [
+        { "id": "x10", "text": "स्कूल की छत टपकती है, बरसात में क्लास बंद रहती है", "original_language": "hi", "has_photo": true, "photo_url": "/mock/media/school.svg", "created_at": "2026-07-05T11:00:00Z" },
+        { "id": "x11", "text": "There is no separate toilet for girls, many have stopped coming", "original_language": "en", "has_photo": false, "created_at": "2026-07-05T07:40:00Z" },
+        { "id": "x12", "text": "बच्चों को दूसरे वार्ड के स्कूल भेजना पड़ रहा है", "original_language": "hi", "has_photo": false, "created_at": "2026-07-04T18:20:00Z" }
+      ],
+      "related": []
+    },
+    {
+      "id": "c7",
+      "label": "Chain-snatching and theft incidents at night",
+      "category": "safety",
+      "severity": "medium",
+      "severity_rationale": "Cluster of night-time theft reports concentrated in the same low-lit corridor; corroborated by the streetlight dark-spot cluster.",
+      "complaint_count": 4,
+      "citizen_count": 4,
+      "locality": "banganga",
+      "lat": 22.7441,
+      "lng": 75.8338,
+      "complaints": [
+        { "id": "x20", "text": "रात को चेन स्नैचिंग की घटना हुई मेन रोड पर", "original_language": "hi", "has_photo": false, "created_at": "2026-07-04T22:40:00Z" },
+        { "id": "x21", "text": "Two phone snatching cases last week after dark", "original_language": "en", "has_photo": false, "created_at": "2026-07-03T23:10:00Z" }
+      ],
+      "related": [
+        {
+          "cluster_id": "c3",
+          "label": "Street lights non-functional in Banganga lanes",
+          "relation": "related_to",
+          "explanation": "The theft incidents track the same unlit stretch flagged in the streetlight cluster."
+        }
+      ]
+    },
+    {
+      "id": "c1",
+      "label": "Potholes and broken road surface — Scheme 54, Vijay Nagar",
+      "category": "roads",
+      "severity": "medium",
+      "severity_rationale": "Recurring pothole reports along the Scheme 54 corridor; monsoon worsening but no injury reports, kept at medium.",
+      "complaint_count": 6,
+      "citizen_count": 5,
+      "locality": "vijay-nagar",
+      "lat": 22.7533,
+      "lng": 75.8937,
+      "complaints": [
+        { "id": "x30", "text": "Huge potholes on the Scheme 54 main road, two-wheelers keep skidding", "original_language": "en", "has_photo": true, "photo_url": "/mock/media/pothole.svg", "created_at": "2026-07-05T09:05:00Z" },
+        { "id": "x31", "text": "बारिश में सड़क पूरी तरह टूट गई है", "original_language": "hi", "has_photo": false, "created_at": "2026-07-04T16:30:00Z" }
+      ],
+      "related": []
+    },
+    {
+      "id": "c9",
+      "label": "Blocked drains and stagnant water — Musakhedi nala",
+      "category": "sanitation",
+      "severity": "high",
+      "severity_rationale": "Stagnant water along the main nala; overlaps the ward's dengue reports and low PHC density (0.3 per 10k).",
+      "complaint_count": 7,
+      "citizen_count": 6,
+      "locality": "musakhedi",
+      "lat": 22.6980,
+      "lng": 75.8895,
+      "complaints": [
+        { "id": "x40", "text": "नाला जाम है, गंदा पानी सड़क पर भरा रहता है", "original_language": "hi", "has_photo": true, "photo_url": "/mock/media/drain.svg", "created_at": "2026-07-05T08:15:00Z" },
+        { "id": "x41", "text": "Mosquitoes everywhere, two dengue cases in our lane", "original_language": "en", "has_photo": false, "created_at": "2026-07-04T19:45:00Z" }
+      ],
+      "related": []
+    },
+    {
+      "id": "c4",
+      "label": "Narmada water supply irregular — Palasia",
+      "category": "water",
+      "severity": "medium",
+      "severity_rationale": "Intermittent supply on the AB Road stretch; corroborated by pipeline-age records but alternate tanker supply available.",
+      "complaint_count": 5,
+      "citizen_count": 4,
+      "locality": "palasia",
+      "lat": 22.7256,
+      "lng": 75.8840,
+      "complaints": [
+        { "id": "x50", "text": "Water comes only once in two days near Geeta Bhawan", "original_language": "en", "has_photo": false, "created_at": "2026-07-05T07:00:00Z" },
+        { "id": "x51", "text": "पानी का प्रेशर बहुत कम है सुबह", "original_language": "hi", "has_photo": false, "created_at": "2026-07-04T06:30:00Z" }
+      ],
+      "related": []
+    }
+  ]
+}

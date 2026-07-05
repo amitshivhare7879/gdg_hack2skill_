@@ -1,0 +1,65 @@
+[
+  {
+    "id": "p1",
+    "title": "Road resurfacing and pothole repair — Scheme 54 corridor, Vijay Nagar",
+    "category": "roads",
+    "locality": "vijay-nagar",
+    "feasibility_score": 72,
+    "feasibility_evidence": "Est. ₹95L for 2.4 km resurfacing; IMC road-maintenance head available; monsoon window limits work to patch-first, full relay post-rains (5-month timeline).",
+    "linked_categories": ["roads"]
+  },
+  {
+    "id": "p2",
+    "title": "Primary school building repair and girls' toilet block — Banganga Ward",
+    "category": "education",
+    "locality": "banganga",
+    "feasibility_score": 88,
+    "feasibility_evidence": "Est. ₹18L, 3-month timeline; existing government building and land, MPLAD head applicable; UDISE+ flags 22% ward dropout vs 5-6% in planned wards — repair directly addresses documented dropout driver (closed classrooms, no girls' toilet).",
+    "linked_categories": ["education"]
+  },
+  {
+    "id": "p3",
+    "title": "New vocational training centre — Banganga Ward",
+    "category": "education",
+    "locality": "banganga",
+    "feasibility_score": 52,
+    "feasibility_evidence": "Est. ₹1.2Cr; requires land acquisition and new construction (12-18 months); no trainer staffing sanction yet; complaint data points to primary-school infrastructure, not skilling, as the active dropout driver.",
+    "linked_categories": ["education"]
+  },
+  {
+    "id": "p4",
+    "title": "LED streetlight installation and dark-spot elimination — Banganga main road and inner lanes",
+    "category": "electricity",
+    "locality": "banganga",
+    "feasibility_score": 92,
+    "feasibility_evidence": "Est. ₹9L for 140 LED fixtures on existing poles; 6-week timeline under IMC smart-lighting rate contract; ward streetlight density already mapped 'low' — quick win with direct night-safety co-benefit.",
+    "linked_categories": ["electricity", "safety"]
+  },
+  {
+    "id": "p5",
+    "title": "Narmada pipeline replacement — AB Road / Geeta Bhawan stretch, Palasia",
+    "category": "water",
+    "locality": "palasia",
+    "feasibility_score": 66,
+    "feasibility_evidence": "Est. ₹68L for 800m line replacement; requires road cutting permission and night work on arterial AB Road; 4-month timeline; also arrests ongoing road-base erosion at the same spot.",
+    "linked_categories": ["water", "roads"]
+  },
+  {
+    "id": "p6",
+    "title": "Sewer line desilting and drain reconstruction — Musakhedi main nala",
+    "category": "sanitation",
+    "locality": "musakhedi",
+    "feasibility_score": 58,
+    "feasibility_evidence": "Est. ₹42L; desilting immediate (3 weeks) but drain reconstruction needs AMRUT 2.0 sanction (files pending at UADD); phased delivery possible; reduces the stagnant water driving the ward's dengue cluster.",
+    "linked_categories": ["sanitation", "health"]
+  },
+  {
+    "id": "p7",
+    "title": "Health sub-centre upgrade with daily OPD — Musakhedi",
+    "category": "health",
+    "locality": "musakhedi",
+    "feasibility_score": 34,
+    "feasibility_evidence": "Est. ₹1.6Cr; needs NHM staffing sanction for one MO and two ANMs plus building expansion on disputed plot; 18-24 month realistic timeline; ward phc_per_10k at 0.3 vs 0.9 in planned wards documents the gap.",
+    "linked_categories": ["health", "sanitation"]
+  }
+]

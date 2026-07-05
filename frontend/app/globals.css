@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #f7f7f6;
+  color: #1f2933;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Leaflet renders its own container; keep it above nothing weird */
+.leaflet-container {
+  font-family: inherit;
+}
+
+/* FLIP-cheap rank transition for priority cards */
+.rank-flip {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
