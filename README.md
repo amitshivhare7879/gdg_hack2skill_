@@ -1,4 +1,4 @@
-<![CDATA[# JanVikas AI
+# JanVikas AI
 
 **Civic Intelligence Platform for Indore District Administration**
 
@@ -278,4 +278,3 @@ Built for the **GDG × Hack2Skill** Hackathon.
 ## 📄 License
 
 This project was created for a hackathon submission. Please contact the team for licensing inquiries.
-]]>
