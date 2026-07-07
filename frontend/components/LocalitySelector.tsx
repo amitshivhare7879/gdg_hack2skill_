@@ -29,20 +29,20 @@ export default function LocalitySelector() {
   }
 
   return (
-    <label className="flex items-center gap-2 text-sm">
-      <span className="hidden font-medium text-ink-muted sm:inline">📍 Locality</span>
+    <div className="flex items-center gap-2">
+      <span className="hidden text-[10px] font-bold uppercase tracking-widest text-ink-muted sm:inline">Ward / Area</span>
       <select
         value={current}
         onChange={onChange}
-        className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-ink shadow-card transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+        className="cursor-pointer rounded border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-ink transition hover:border-slate-400 focus:border-brand focus:outline-none"
       >
-        <option value="">All localities</option>
+        <option value="">All Indore Wards</option>
         {localities.map((l) => (
           <option key={l.slug} value={l.slug}>
             {l.name}
           </option>
         ))}
       </select>
-    </label>
+    </div>
   );
 }

@@ -16,17 +16,13 @@ body {
   color: #0f172a;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Soft neutral canvas with two faint brand/indigo glows in the corners. */
-  background-color: #f6f7f9;
-  background-image:
-    radial-gradient(60rem 60rem at 100% -10%, rgba(224, 122, 47, 0.06), transparent 60%),
-    radial-gradient(50rem 50rem at -10% 110%, rgba(79, 70, 229, 0.05), transparent 55%);
-  background-attachment: fixed;
+  /* Premium warm paper alabaster background */
+  background-color: #fcfbf9;
   min-height: 100vh;
 }
 
 ::selection {
-  background: rgba(224, 122, 47, 0.2);
+  background: rgba(194, 65, 12, 0.15);
 }
 
 /* Thin, unobtrusive scrollbars */
@@ -35,12 +31,15 @@ body {
   scrollbar-color: #cbd5e1 transparent;
 }
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 *::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #e2e8f0;
   border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
 }
 
 .leaflet-container {
@@ -80,7 +79,7 @@ body {
 
 /* Gradient text helper for headings/brand */
 .text-gradient {
-  background: linear-gradient(135deg, #f59e0b, #e07a2f 60%, #d2601c);
+  background: linear-gradient(135deg, #9a3412 0%, #c2410c 55%, #7c2d12 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

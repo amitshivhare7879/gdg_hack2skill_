@@ -98,16 +98,15 @@ export default function VoiceInput({
     <button
       type="button"
       onClick={toggle}
-      className={`flex w-full items-center justify-center gap-2 rounded-xl border-2 py-3 text-sm font-semibold transition ${
+      className={`flex w-full items-center justify-center gap-2 rounded border py-2.5 text-[10px] font-bold uppercase tracking-widest transition-all duration-150 ${
         recording
-          ? "animate-pulse border-red-400 bg-red-50 text-red-600"
-          : "border-brand bg-white text-brand-dark hover:bg-brand-light"
+          ? "animate-pulse border-red-600 bg-red-600 text-white"
+          : "border-slate-200 bg-slate-50 text-ink-soft hover:bg-slate-100 hover:border-slate-350"
       }`}
     >
-      <span aria-hidden className="text-lg">
-        {recording ? "⏺" : "🎤"}
+      <span>
+        {recording ? "Stop Recording" : "Start Voice Intake"}
       </span>
-      {recording ? copy.stop : copy.start}
     </button>
   );
 }

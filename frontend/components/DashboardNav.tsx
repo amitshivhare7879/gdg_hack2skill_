@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import LocalitySelector from "./LocalitySelector";
 
 const TABS = [
   { href: "/dashboard", label: "Overview" },
@@ -18,18 +17,18 @@ export default function DashboardNav() {
   const suffix = locality ? `?locality=${encodeURIComponent(locality)}` : "";
 
   return (
-    <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-      <nav className="flex gap-1 rounded-xl border border-slate-200/80 bg-white p-1 shadow-card">
+    <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-2">
+      <nav className="flex gap-6">
         {TABS.map((t) => {
           const active = pathname === t.href;
           return (
             <Link
               key={t.href}
               href={`${t.href}${suffix}`}
-              className={`rounded-lg px-3.5 py-1.5 text-sm font-semibold transition ${
+              className={`relative pb-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-150 border-b-2 ${
                 active
-                  ? "bg-brand-gradient text-white shadow-glow"
-                  : "text-ink-soft hover:bg-slate-100 hover:text-ink"
+                  ? "text-ink border-ink"
+                  : "text-ink-muted hover:text-ink border-transparent"
               }`}
             >
               {t.label}
@@ -37,7 +36,6 @@ export default function DashboardNav() {
           );
         })}
       </nav>
-      <LocalitySelector />
     </div>
   );
 }

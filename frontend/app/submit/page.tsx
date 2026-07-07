@@ -130,21 +130,20 @@ export default function SubmitPage() {
   // ---- Success screen ----
   if (result) {
     return (
-      <div className="mx-auto max-w-md py-8 text-center animate-pop-in">
-        <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-4xl text-emerald-600 ring-8 ring-emerald-50">
-          ✓
+      <div className="mx-auto max-w-md py-12 text-center animate-pop-in">
+        <div className="mx-auto mb-6 flex h-10 w-10 items-center justify-center rounded border border-slate-350 text-xs font-bold text-ink bg-slate-50">
+          OK
         </div>
-        <h1 className="text-2xl font-extrabold text-ink">{t.successTitle}</h1>
-        <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left shadow-card">
-          <div className="h-1.5 bg-brand-gradient" aria-hidden />
-          <div className="p-5">
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-muted">
-              {lang === "hi" ? "समूह में जोड़ा गया" : "Grouped into"}
+        <h1 className="text-xl font-bold text-ink font-heading">{t.successTitle}</h1>
+        <div className="mt-6 overflow-hidden rounded border border-slate-200 bg-white text-left">
+          <div className="p-4">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+              {lang === "hi" ? "समूह में जोड़ा गया" : "Consolidated group"}
             </p>
-            <p className="mt-1.5 text-lg font-bold leading-snug text-ink">
+            <p className="mt-2 text-sm font-bold leading-snug text-ink font-heading">
               {result.cluster_label}
             </p>
-            <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm leading-relaxed text-ink-soft">
+            <p className="mt-3 rounded bg-slate-50 p-3 text-xs leading-relaxed text-ink-muted">
               {result.message}
             </p>
           </div>
@@ -152,13 +151,13 @@ export default function SubmitPage() {
         <div className="mt-6 flex flex-col gap-2.5">
           <button
             onClick={reset}
-            className="rounded-2xl bg-brand-gradient py-3.5 font-bold text-white shadow-glow transition hover:brightness-105 active:scale-95"
+            className="w-full rounded border border-brand bg-brand py-2.5 text-[10px] font-bold uppercase tracking-widest text-white transition hover:bg-brand-dark active:scale-[0.98]"
           >
             {t.another}
           </button>
           <Link
             href="/dashboard"
-            className="rounded-2xl border border-slate-200 bg-white py-3.5 font-semibold text-ink-soft transition hover:bg-slate-50"
+            className="w-full rounded border border-slate-200 bg-white py-2.5 text-[10px] font-bold uppercase tracking-widest text-ink-soft transition hover:bg-slate-50 text-center"
           >
             {t.viewDashboard}
           </Link>
@@ -169,131 +168,179 @@ export default function SubmitPage() {
 
   // ---- Intake form ----
   return (
-    <div className="mx-auto max-w-md py-2 animate-fade-up">
-      <div className="mb-5 flex items-start justify-between gap-3">
-        <div>
-          <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-brand-light px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-dark ring-1 ring-brand/20">
-            🎙️ {lang === "hi" ? "नागरिक शिकायत" : "Citizen intake"}
-          </span>
-          <h1 className="text-2xl font-extrabold tracking-tight text-ink">{t.title}</h1>
-          <p className="mt-1 text-sm text-ink-muted">{t.subtitle}</p>
+    <div className="mx-auto max-w-5xl py-2 animate-fade-up">
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Info Column */}
+        <div className="flex flex-col justify-center space-y-6 lg:pr-6">
+          <div>
+            <div className="mb-2.5 text-[10px] font-bold uppercase tracking-widest text-ink-muted leading-none">
+              {lang === "hi" ? "नागरिक शिकायत" : "Citizen Intake Portal"}
+            </div>
+            <h1 className="text-3xl font-bold tracking-tight text-ink font-heading leading-tight">
+              {t.title}
+            </h1>
+            <p className="mt-2 text-xs text-ink-muted leading-relaxed">
+              {t.subtitle}
+            </p>
+          </div>
+
+          <div className="space-y-4 rounded border border-slate-200 bg-white p-4">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+              {lang === "hi" ? "शिकायत प्रणाली कैसे काम करती है?" : "How the system works"}
+            </h3>
+
+            <div className="space-y-4 text-xs text-ink-soft">
+              <div className="flex gap-3">
+                <span className="font-mono font-bold text-ink-muted text-xs pt-0.5">01</span>
+                <div>
+                  <p className="font-bold text-ink-soft">{lang === "hi" ? "आवाज़ में बोलें" : "Voice-First Input"}</p>
+                  <p className="text-ink-muted text-xs mt-0.5 font-normal leading-relaxed">{lang === "hi" ? "अपनी भाषा में बोलें। एआई खुद ही ट्रांसक्राइब और अनुवाद कर लेगा।" : "Tap record and speak naturally in Hindi or English. The AI handles the transcription."}</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <span className="font-mono font-bold text-ink-muted text-xs pt-0.5">02</span>
+                <div>
+                  <p className="font-bold text-ink-soft">{lang === "hi" ? "समान समस्याओं का विलीनिकरण" : "Automated Aggregation"}</p>
+                  <p className="text-ink-muted text-xs mt-0.5 font-normal leading-relaxed">{lang === "hi" ? "आपकी शिकायत को आपके क्षेत्र की समान शिकायतों के साथ एक समूह में जोड़ दिया जाता है।" : "We group duplicate complaints into a single cluster to track total community demand."}</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <span className="font-mono font-bold text-ink-muted text-xs pt-0.5">03</span>
+                <div>
+                  <p className="font-bold text-ink-soft">{lang === "hi" ? "त्वरित कार्रवाई" : "Prioritized Action"}</p>
+                  <p className="text-ink-muted text-xs mt-0.5 font-normal leading-relaxed">{lang === "hi" ? "समस्या का आकार और गंभीरता देखकर प्रशासन तुरंत समाधान के कदम उठाएगा।" : "The district office priorities actions based on evidence, density, and local needs."}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        {/* Language toggle */}
-        <div className="flex shrink-0 rounded-xl border border-slate-200 bg-white p-1 text-sm shadow-card">
-          {(["hi", "en"] as Language[]).map((l) => (
+
+        {/* Form Column */}
+        <div>
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+              {lang === "hi" ? "विवरण भरें" : "Form Details"}
+            </h2>
+            {/* Language toggle */}
+            <div className="flex rounded border border-slate-200 bg-white p-0.5 text-xs">
+              {(["hi", "en"] as Language[]).map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => setLang(l)}
+                  className={`rounded-sm px-2.5 py-1 font-bold transition ${
+                    lang === l ? "bg-slate-900 text-white" : "text-ink-muted hover:text-ink"
+                  }`}
+                >
+                  {l === "hi" ? "हिंदी" : "EN"}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <form
+            onSubmit={onSubmit}
+            className="space-y-4 rounded border border-slate-200 bg-white p-4"
+          >
+            {/* Voice + text */}
+            <div className="space-y-2">
+              <label className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+                {t.describe}
+              </label>
+              <div className="relative">
+                <VoiceInput lang={lang} onTranscript={(txt) => setText((p) => (p ? p + " " + txt : txt))} />
+              </div>
+              <textarea
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                placeholder={t.placeholder}
+                rows={3}
+                className="w-full rounded border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-ink transition focus:border-brand focus:bg-white focus:outline-none"
+              />
+            </div>
+
+            {/* Category */}
+            <div className="space-y-2">
+              <label className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+                {t.category}
+              </label>
+              <CategoryIconGrid value={category} onChange={setCategory} lang={lang} />
+            </div>
+
+            {/* Locality */}
+            <div className="space-y-2">
+              <label className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+                {t.locality}
+              </label>
+              <select
+                value={locality}
+                onChange={(e) => setLocality(e.target.value)}
+                className="w-full rounded border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-ink transition focus:border-brand focus:bg-white focus:outline-none"
+              >
+                <option value="">{t.selectLocality}</option>
+                {localities.map((l) => (
+                  <option key={l.slug} value={l.slug}>
+                    {l.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Phone */}
+            <div className="space-y-2">
+              <label className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+                {t.phone}
+              </label>
+              <input
+                type="tel"
+                inputMode="numeric"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full rounded border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs text-ink transition focus:border-brand focus:bg-white focus:outline-none"
+              />
+              <p className="text-[9px] text-ink-muted leading-relaxed">{t.phoneHint}</p>
+            </div>
+
+            {/* Photo */}
+            <div className="space-y-2">
+              <label className="text-[9px] font-bold uppercase tracking-widest text-ink-muted">
+                {t.photo}
+              </label>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                onChange={onFile}
+                className="block w-full text-xs text-ink-muted file:mr-3 file:rounded file:border file:border-slate-200 file:bg-slate-50 file:px-3 file:py-1.5 file:text-xs file:font-bold file:text-ink-soft hover:file:bg-slate-100 transition-colors"
+              />
+              {photoPreview && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={photoPreview}
+                  alt="Selected photo preview"
+                  className="mt-3 h-36 w-full rounded object-cover border border-slate-200"
+                />
+              )}
+            </div>
+
+            {formError && (
+              <p className="flex items-center gap-2 rounded border border-red-200 bg-red-50 px-3 py-2 text-xs font-bold text-red-700">
+                <span>[ Notice ]</span> {formError}
+              </p>
+            )}
+
             <button
-              key={l}
-              type="button"
-              onClick={() => setLang(l)}
-              className={`rounded-lg px-3 py-1.5 font-bold transition ${
-                lang === l ? "bg-brand-gradient text-white shadow-glow" : "text-ink-muted hover:text-ink"
-              }`}
+              type="submit"
+              disabled={submitting}
+              className="w-full rounded border border-brand bg-brand py-2.5 text-[10px] font-bold uppercase tracking-widest text-white transition hover:bg-brand-dark active:scale-[0.98] disabled:opacity-60"
             >
-              {l === "hi" ? "हिंदी" : "EN"}
+              {submitting ? t.submitting : `${t.submit}`}
             </button>
-          ))}
+          </form>
         </div>
       </div>
-
-      <form
-        onSubmit={onSubmit}
-        className="space-y-5 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-card"
-      >
-        {/* Voice + text */}
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">
-            {t.describe}
-          </label>
-          <div className="mb-2">
-            <VoiceInput lang={lang} onTranscript={(txt) => setText((p) => (p ? p + " " + txt : txt))} />
-          </div>
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder={t.placeholder}
-            rows={3}
-            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
-          />
-        </div>
-
-        {/* Category */}
-        <div>
-          <label className="mb-2 block text-sm font-medium text-ink">
-            {t.category}
-          </label>
-          <CategoryIconGrid value={category} onChange={setCategory} lang={lang} />
-        </div>
-
-        {/* Locality */}
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">
-            {t.locality}
-          </label>
-          <select
-            value={locality}
-            onChange={(e) => setLocality(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
-          >
-            <option value="">{t.selectLocality}</option>
-            {localities.map((l) => (
-              <option key={l.slug} value={l.slug}>
-                {l.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">
-            {t.phone}
-          </label>
-          <input
-            type="tel"
-            inputMode="numeric"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3 text-base text-ink transition focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30"
-          />
-          <p className="mt-1 text-xs text-ink-muted">{t.phoneHint}</p>
-        </div>
-
-        {/* Photo */}
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-ink">
-            {t.photo}
-          </label>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/*"
-            onChange={onFile}
-            className="block w-full text-sm text-ink-muted file:mr-3 file:rounded-xl file:border-0 file:bg-brand-light file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-brand-dark hover:file:brightness-95"
-          />
-          {photoPreview && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photoPreview}
-              alt="Selected photo preview"
-              className="mt-3 h-36 w-full rounded-xl object-cover ring-1 ring-slate-200"
-            />
-          )}
-        </div>
-
-        {formError && (
-          <p className="flex items-center gap-2 rounded-xl bg-red-50 px-3.5 py-2.5 text-sm font-medium text-red-600 ring-1 ring-red-100">
-            <span>⚠️</span> {formError}
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full rounded-2xl bg-brand-gradient py-4 text-base font-bold text-white shadow-glow transition hover:brightness-105 active:scale-[0.98] disabled:opacity-60"
-        >
-          {submitting ? t.submitting : `${t.submit}  →`}
-        </button>
-      </form>
     </div>
   );
 }
