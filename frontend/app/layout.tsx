@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerifDisplay.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSerifDisplay.variable}`} suppressHydrationWarning>
       <body className="min-h-screen font-sans text-ink antialiased bg-[#fcfbf9]">
         <header className="sticky top-0 z-40 border-b border-slate-200 bg-[#fcfbf9]/95 backdrop-blur-md">
           <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 lg:px-8 xl:px-10 py-4">
