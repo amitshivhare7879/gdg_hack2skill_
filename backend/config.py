@@ -10,7 +10,7 @@ SIMILARITY_THRESHOLD = float(os.environ.get("SIMILARITY_THRESHOLD", "0.82"))
 GEMINI_TIMEOUT_S = 10
 EMBED_MODEL = "gemini-embedding-001"
 FLASH_MODEL = "gemini-flash-latest"
-DB_URL = os.environ.get("DATABASE_URL", "sqlite:///./janvikas.db")
+DB_URL = os.environ.get("DATABASE_URL", "sqlite:///./civic_rank.db")
 
 # BACKUP generation provider — any OpenAI-compatible chat API. Defaults to Groq
 # serving Llama 3.3 70B. Only used when a Gemini generation call fails AND

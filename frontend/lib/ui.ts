@@ -47,8 +47,8 @@ export function severityMeta(sev: string) {
 }
 
 export const LANGUAGE_BADGE: Record<Language, { text: string; className: string }> = {
-  hi: { text: "हिं", className: "bg-brand-light text-brand-dark border border-brand/30" },
-  en: { text: "EN", className: "bg-slate-100 text-slate-600 border border-slate-300" },
+  hi: { text: "हिं", className: "bg-white text-ink border border-slate-200" },
+  en: { text: "EN", className: "bg-white text-ink border border-slate-200" },
 };
 
 export const RELATION_LABEL: Record<string, string> = {

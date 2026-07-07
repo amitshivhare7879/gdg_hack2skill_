@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import type { Cluster } from "@/lib/types";
-import { mediaUrl } from "@/lib/api";
+import { useEffect, useState } from "react";
+import type { Cluster, Project } from "@/lib/types";
+import { mediaUrl, getPriorities } from "@/lib/api";
 import { categoryMeta, severityMeta, RELATION_LABEL } from "@/lib/ui";
 import LanguageBadge from "./LanguageBadge";
+import Link from "next/link";
 
 export default function ClusterDrawer({
   cluster,
@@ -13,6 +14,14 @@ export default function ClusterDrawer({
   cluster: Cluster | null;
   onClose: () => void;
 }) {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    getPriorities()
+      .then(setProjects)
+      .catch(() => {});
+  }, []);
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -34,87 +43,80 @@ export default function ClusterDrawer({
   return (
     <div className="fixed inset-0 z-[1000] flex justify-end" role="dialog" aria-modal="true">
       <div
-        className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-ink/30"
         onClick={onClose}
         aria-hidden
         style={{ animation: "fade-up 0.2s ease both" }}
       />
       <aside
-        className="relative flex h-full w-full max-w-md flex-col overflow-y-auto bg-slate-50 shadow-2xl"
+        className="relative flex h-full w-full max-w-md flex-col overflow-y-auto bg-white border-l border-slate-250"
         style={{ animation: "pop-in 0.28s cubic-bezier(0.2,0.8,0.2,1) both" }}
       >
-        {/* Gradient header band */}
-        <div className="sticky top-0 z-10">
-          <div
-            className="h-1.5 w-full"
-            style={{ background: cat.marker }}
-            aria-hidden
-          />
-          <div className="border-b border-slate-200 bg-white/90 px-5 py-4 backdrop-blur">
-            <div className="mb-3 flex items-center justify-between">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${cat.chip}`}>
-                  <span aria-hidden>{cat.emoji}</span>
-                  {cat.label}
-                </span>
-                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${sev.badge}`}>
-                  <span className={`h-1.5 w-1.5 rounded-full ${sev.dot}`} />
-                  {sev.label} severity
-                </span>
-              </div>
-              <button
-                onClick={onClose}
-                aria-label="Close"
-                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-muted transition hover:bg-slate-100 hover:text-ink"
-              >
-                ✕
-              </button>
-            </div>
-            <h2 className="text-lg font-extrabold leading-snug text-ink">{cluster.label}</h2>
-            <div className="mt-2 flex items-center gap-3 text-sm text-ink-muted">
-              <span>
-                <span className="font-bold text-ink">{cluster.complaint_count}</span> reports
+        {/* Header section */}
+        <div className="sticky top-0 z-10 border-b border-slate-200 bg-white px-6 py-5">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-ink-muted">
+                {cat.label}
               </span>
               <span className="text-slate-300">·</span>
-              <span>
-                <span className="font-bold text-ink">{cluster.citizen_count}</span> unique citizens
+              <span className={`text-[10px] font-extrabold uppercase tracking-wider ${cluster.severity === "high" ? "text-brand" : "text-ink-soft"}`}>
+                {sev.label} Severity
               </span>
             </div>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="text-ink-muted hover:text-ink text-xs font-bold uppercase tracking-wider p-1"
+            >
+              Close
+            </button>
+          </div>
+          <h2 className="text-base font-bold leading-snug text-ink font-heading">{cluster.label}</h2>
+          <div className="mt-3 flex items-center gap-3 text-xs text-ink-muted">
+            <span className="flex items-center gap-1">
+              <span className="font-bold text-ink font-mono">{cluster.complaint_count}</span> complaints
+            </span>
+            <span className="text-slate-300">·</span>
+            <span className="flex items-center gap-1">
+              <span className="font-bold text-ink font-mono">{cluster.citizen_count}</span> unique citizens
+            </span>
           </div>
         </div>
 
-        <div className="space-y-6 px-5 py-5">
-          {/* Corroboration */}
-          <section>
-            <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ink-muted">
-              <span className="text-brand">◆</span> Why this severity
+        <div className="space-y-6 px-6 py-6">
+          {/* Rationale */}
+          <section className="space-y-2">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+              Severity Analysis
             </h3>
-            <p className="rounded-xl border border-slate-200 bg-white p-3.5 text-sm leading-relaxed text-ink-soft">
+            <p className="rounded border border-slate-200 bg-slate-50/50 p-4 text-xs leading-relaxed text-ink-soft">
               {cluster.severity_rationale}
             </p>
           </section>
 
-          {/* Complaints — the mixed-language money shot */}
-          <section>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-ink-muted">
-              Reports in this cluster
+          {/* Complaints list */}
+          <section className="space-y-3">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+              Corroborated Reports
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {cluster.complaints.map((c) => {
                 const src = mediaUrl(c.photo_url);
                 return (
-                  <li key={c.id} className="flex gap-3 rounded-xl border border-slate-200 bg-white p-3.5 shadow-card">
-                    <div className="pt-0.5">
+                  <li key={c.id} className="flex flex-col gap-3 rounded border border-slate-200 bg-white p-4">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                       <LanguageBadge lang={c.original_language} />
+                      <span className="text-[9px] font-mono text-ink-muted">{new Date(c.created_at).toLocaleDateString(undefined, {month: 'short', day: 'numeric'})}</span>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm leading-relaxed text-ink">{c.text}</p>
+                      <p className="text-xs leading-relaxed text-ink-soft">{c.text}</p>
                       {c.has_photo && src && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={src}
                           alt={`Photo attached to report ${c.id}`}
-                          className="mt-2 h-24 w-32 rounded-lg object-cover ring-1 ring-slate-200"
+                          className="mt-3 h-28 w-full rounded object-cover border border-slate-200"
                         />
                       )}
                     </div>
@@ -124,25 +126,58 @@ export default function ClusterDrawer({
             </ul>
           </section>
 
-          {/* Related clusters — causal inference */}
+          {/* Related clusters */}
           {cluster.related.length > 0 && (
-            <section>
-              <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-ink-muted">
-                Related issues
+            <section className="space-y-3">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+                Causal Relationships
               </h3>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {cluster.related.map((r) => (
-                  <li key={r.cluster_id} className="rounded-xl border border-brand/25 bg-gradient-to-br from-brand-light/60 to-white p-3.5">
-                    <div className="flex items-center gap-2">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-xs text-white" aria-hidden>→</span>
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-brand-dark">
+                  <li key={r.cluster_id} className="rounded border border-slate-250 bg-slate-50/50 p-4">
+                    <div className="flex items-center gap-1.5">
+                      <span className="border border-slate-350 px-1.5 py-0.5 text-[8px] font-extrabold uppercase tracking-wider text-ink-soft bg-white">
                         {RELATION_LABEL[r.relation] ?? r.relation}
                       </span>
                     </div>
-                    <div className="mt-2 text-sm font-bold text-ink">{r.label}</div>
-                    <p className="mt-1 text-sm leading-relaxed text-ink-soft">{r.explanation}</p>
+                    <div className="mt-2 text-xs font-bold text-ink font-heading">{r.label}</div>
+                    <p className="mt-1.5 text-[11px] leading-relaxed text-ink-muted">{r.explanation}</p>
                   </li>
                 ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Proposed Municipal Resolutions */}
+          {projects.filter((p) => p.linked_cluster_ids.includes(cluster.id)).length > 0 && (
+            <section className="space-y-3">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-ink-muted">
+                Proposed Municipal Resolutions
+              </h3>
+              <ul className="space-y-3">
+                {projects
+                  .filter((p) => p.linked_cluster_ids.includes(cluster.id))
+                  .map((p) => (
+                    <li key={p.id} className="rounded border border-slate-250 bg-slate-50/50 p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="border border-brand/40 px-1.5 py-0.5 text-[8px] font-extrabold uppercase tracking-wider text-brand bg-brand-light/30 rounded-sm">
+                          Proposed Project
+                        </span>
+                        <span className="text-[9px] font-bold text-ink-soft font-mono">
+                          Score: {Math.round((p.demand_score + p.severity_score + p.feasibility_score) / 3)}/100
+                        </span>
+                      </div>
+                      <div className="mt-2 text-xs font-bold text-ink font-heading">{p.title}</div>
+                      <p className="mt-1.5 text-[11px] leading-relaxed text-ink-muted">{p.severity_evidence}</p>
+                      <Link
+                        href="/dashboard/priorities"
+                        onClick={onClose}
+                        className="mt-3.5 inline-block text-[9px] font-bold text-brand uppercase tracking-widest hover:underline"
+                      >
+                        View Priority Weights & Rank
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </section>
           )}

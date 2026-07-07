@@ -30,7 +30,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="JanVikas AI", lifespan=lifespan)
+app = FastAPI(title="Civic Rank", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

@@ -9,19 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Civic-tech saffron accent — primary actions + brand.
         brand: {
-          50: "#FDF4EC",
-          100: "#FAE5D2",
-          200: "#F3C79E",
-          300: "#ECA76A",
-          400: "#E68C43",
-          500: "#E07A2F",
-          600: "#C4661E",
-          700: "#A0521A",
-          DEFAULT: "#E07A2F",
-          dark: "#B85C1B",
-          light: "#FCEBD9",
+          50: "#FFF7ED",
+          100: "#FFEDD5",
+          200: "#FED7AA",
+          300: "#FDBA74",
+          400: "#FB923C",
+          500: "#C2410C", // Indore Rust
+          600: "#EA580C",
+          700: "#9A3412",
+          DEFAULT: "#C2410C",
+          dark: "#9A3412",
+          light: "#FFF7ED",
         },
         ink: {
           DEFAULT: "#0F172A",
@@ -40,17 +39,23 @@ const config: Config = {
           "Roboto",
           "sans-serif",
         ],
+        heading: [
+          "var(--font-heading)",
+          "DM Serif Display",
+          "serif",
+        ],
       },
       boxShadow: {
-        card: "0 1px 2px rgba(15,23,42,0.04), 0 4px 12px -4px rgba(15,23,42,0.08)",
-        lift: "0 16px 40px -16px rgba(15,23,42,0.28)",
-        glow: "0 10px 30px -10px rgba(224,122,47,0.55)",
-        ring: "0 0 0 1px rgba(15,23,42,0.05)",
+        card: "none",
+        lift: "none",
+        glow: "none",
+        ring: "none",
       },
       backgroundImage: {
         "brand-gradient":
-          "linear-gradient(135deg, #F59E0B 0%, #E07A2F 55%, #D2601C 100%)",
+          "linear-gradient(135deg, #9A3412 0%, #C2410C 55%, #7C2D12 100%)",
         "ink-gradient": "linear-gradient(135deg, #1E293B 0%, #0F172A 100%)",
+        "sand-gradient": "linear-gradient(135deg, #FCFBF9 0%, #F5F4F0 100%)",
       },
       keyframes: {
         "fade-up": {
@@ -58,7 +63,7 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "pop-in": {
-          "0%": { opacity: "0", transform: "scale(0.96)" },
+          "0%": { opacity: "0", transform: "scale(0.97)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
         shimmer: {

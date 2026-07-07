@@ -8,17 +8,17 @@ export default function PageHeader({
   subtitle?: string;
 }) {
   return (
-    <div className="mb-6 animate-fade-up">
+    <div className="mb-8 animate-fade-up">
       {eyebrow && (
-        <span className="mb-2 inline-block rounded-full bg-brand-light px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-dark ring-1 ring-brand/20">
+        <div className="mb-2.5 text-[10px] font-bold uppercase tracking-widest text-ink-muted leading-none">
           {eyebrow}
-        </span>
+        </div>
       )}
-      <h1 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+      <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl font-heading">
         {title}
       </h1>
       {subtitle && (
-        <p className="mt-1.5 max-w-2xl text-sm text-ink-muted sm:text-[15px]">
+        <p className="mt-2.5 max-w-3xl text-xs leading-relaxed text-ink-muted">
           {subtitle}
         </p>
       )}
