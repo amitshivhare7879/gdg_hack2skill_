@@ -30,6 +30,10 @@ Urban governance suffers from fragmented citizen feedback — complaints arrive 
 
 ## 🏗️ Architecture
 
+![Civic Rank System Architecture](assets/system_architecture.jpg)
+
+### Component & API Layout
+
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                    FRONTEND (Next.js 15)                  │

@@ -1,0 +1,2 @@
+assets/system_architecture.png filter=lfs diff=lfs merge=lfs -text
+assets/system_architecture.jpg filter=lfs diff=lfs merge=lfs -text
